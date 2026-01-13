@@ -8,7 +8,8 @@ class CreaRicettaController extends Controller{
     function crearicetta(Request $request, Response $response, $args) {    
         $page = PageConfigurator::instance()->getPage(); //guarda index, avevi fatto setPage
         $page->setTitle("Crea Ricetta");
-        $page->add("content", new PageElement("ui/crea_ricetta"));
+        $page->add("js", new PageElement("js/ricettefiltri"));
+        $page->add("content", new PageElement("ricette/crea_ricetta"));
         return $response;
     }
 
