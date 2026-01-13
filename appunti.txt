@@ -1,0 +1,34 @@
+si passa da un unico file -index.php-. dentro questo file ci deve essere la logica per riconoscere le richieste (il router). le richieste saranno delle url virtuali.
+ora invece abbiamo individuato degli elementi vedendo l'applicazione divisa in parti. abbiamo definito un modello di architettura.
+a fronte di una richiesta c'è qualcosa che determina chi la può fare. 
+
+abbiamo tre unità principali(partiamo dal basso, modalità bottom-up):
+    dati e risorse: 
+        cuore dell'applicazione. insieme dei componenti che gestiscono i dati che rappresentano le info.
+    logica applicativa:
+        si realizzano i comportamenti dell'app
+    presentazione
+        la parte di componenti che permetto l'interazione con l'utente finale (spesso è la user-interface)
+Questo sistema si dice distribuito perchè il calcolo viene ripartizionato su differenti unità di elaborazione.
+
+Questo pattern si chiama MVC (model-view-controller).
+    model: modello dei dati
+        -organizzazione di strutture dati
+        -tutte le operazioni che si possono effettuare su di essi
+    view: modalità di visualizzazione e interazione con l'utente
+        -rappresentazione grafica
+        -permette di interagire con i dati
+    controller: la logica applicativa
+        -gestisce le richieste/eventi generati dall'utente
+        -può modificare o aggiornare la view 
+
+Il view è il listener del model, 
+il controller è il listener del view. (credo, o view o model).
+
+
+l'index.php è il nostro controller.
+
+se il client si preoccupa della grafica il server si chiama API
+se esiste la versione del server che può lavorare costruendo le pagine allora si chiama web application server.
+
+ 

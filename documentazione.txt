@@ -1,0 +1,23 @@
+
+su quali testi/documenti mi sono basato?
+    libro ricette
+    studi sullo spreco
+
+generalità
+    breve descrizione dei motivi per i quali è nata questa idea con riferimenti a norme o statistiche o studi etc
+    "è stato notato che statiscamente si butta via un sacco di cibo etc"
+    spiegare da cosa è nata questa idea
+scopo - prerequisiti
+    obiettivi del progetto
+applicabilità
+    a chi si rivolge
+    quali categorie di utenti o quali ambiti
+responsabilità
+    chi fa cosa
+    manutentori, sviluppatori, marketing, servizio clienti etc
+riferimenti
+    libri, articoli, norme, studi
+operabilità = manuale dell'utente
+    come funziona il software
+    diviso in capitoli
+    installazione, registrazione, risoluzione dei problemi, etc

@@ -1,0 +1,568 @@
+pageconfigurator.php:
+<?php
+
+class PageConfigurator{
+    protected $page;
+    static protected $instance = null;
+
+    function __construct(Page $page=null){
+        $this->page = $page;
+    }
+
+    function setPage(Page $page){
+        $this->page = $page;
+    }
+
+    function getPage(){
+        return $this->page;
+    }
+
+    static function instance(){   
+        if(!self::$instance)
+            self::$instance = new PageConfigurator();
+        return self::$instance;
+        }
+}
+routerconfigurator.php:
+<?php
+
+class RouterConfigurator {
+    protected $app;
+
+    function __construct($app){
+        $this->app = $app;
+    }
+
+    function bootstrap(){
+        $method = strtoupper($_SERVER['REQUEST_METHOD']);
+        //in teoria dovrei fare il controllo if file exist ma va bhe
+        include_once __DIR__."/../routes.php";
+        //queste variabili sono quelle del file routes.php
+        foreach($routes[$method] as $route){
+            $this->app->map([$method], $route['pattern'], $route['callable']);
+        }
+    }
+}
+hellocontroller.php:
+<?php
+
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+
+class HelloController extends Controller{
+    function hello(Request $request, Response $response, $args) {
+    $name = $args['name'];                                  
+    $response->getBody()->write("Hello, $name");            
+    return $response;
+}
+}
+homecontroller.php:
+<?php
+
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+
+class HomeController extends Controller{
+    function home(Request $request, Response $response, $args) {    
+        $bottiglia = New NonAlimentari("NNN290", "Bellissima bottiglia rossa", 100, "plastica");
+        $lavatrice = New NonAlimentari("NNN987", "Lavatrice con 10 programmi", 100, "ferro");
+        $lasagna = new Alimentari("AAA936", "Pasta fresca farcita", 100, "12/11/2024");
+
+        $page = PageConfigurator::instance()->getPage();
+        $page->setTitle("Lista prodotti");
+
+
+        include "menu.php";
+        $item = new PageElement('menu', $menu);
+        $page->add('header', $item);
+        //esercizio: fare una pagecarousel con i metodi addimmagine, removeimmagine, setid, getid      
+        $item = new PageElement('carousel', [
+            "images"=>[
+                ["src"=> "img/img1.jpg", "alt"=>"Prima foto", "active"=>"active"], 
+            ["src"=> "img/img2.jpg", "alt"=>"Seconda foto"],
+            ["src"=> "img/img3.jpg", "alt"=>"Terza foto"]
+            ]
+            
+        ]);
+        $page->add('header', $item);
+
+       
+
+        $item = new PageElement('prodotti', ['Prodotti' => [$bottiglia, $lavatrice, $lasagna]]);
+        $page->add('content', $item);
+
+        $response->getBody()->write($page->render());         
+        return $response;
+        }
+}
+
+//metti weight dentro i parametri di $item in modo che anche se scrivo in maniera disordsinata mi faccia vedere le cose come voglio io
+appplication.php 
+<?php
+
+use Slim\Factory\AppFactory;
+
+class Application{
+    protected $app;
+    static protected $instance = null;
+    
+    function __construct(){
+        /**
+         * Instantiate App
+         *
+         * In order for the factory to work you need to ensure you have installed
+         * a supported PSR-7 implementation of your choice e.g.: Slim PSR-7 and a supported
+         * ServerRequest creator (included with Slim PSR-7)
+         */
+        $this->app = AppFactory::create();  // metodo che genera l'istanza dell'app
+        }
+
+        //questo è il design del singleton vedi templateengine.php
+        static function instance(){   // per gli attributi statici non si usa $this, ma self
+        if(!self::$instance)
+            self::$instance = new Application();
+        return self::$instance;
+        }
+
+        function __call($method, $args){ //metodo magico per girare le chiamate alla classe di slim
+            if(method_exists($this->app, $method)){
+                return call_user_func_Array([$this->app, $method],$args);
+            }
+            return null;
+        }
+}
+controller.php<?php 
+
+abstract class Controller{
+    protected $app;
+    function __construct(){
+        $this->app = Application::instance();
+    }
+}
+page.php
+<?php
+
+class Page
+{
+    protected $title;
+    protected $content;
+    protected $template;
+
+    public function __construct($title = "")
+    {
+        $this->title = $title;
+        $this->content = [];
+        $this->template = "index.mst";
+    }
+
+    public function setTemplate($template): void
+    {
+        $this->template = $template;
+    }
+
+    public function setTitle($title): void
+    {
+        $this->title = $title;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function add($key, $content): void{
+        $this->content[$key][] = $content;      // elenco, le chiavi diventano le variabili template
+    }
+
+    public function render(){                       // si crea l'oggetto Mustache, l'engine viene inizializzato
+        
+
+        $data = [
+            'title' => $this->title,    // dati o tramite un array associativo o tramite un oggetto di cui tirerà fuori tutto ciò che è pubblico
+            ];
+        $data = array_merge($data, $this->content); 
+
+        return TemplateEngine::instance()->render($this->template, $data); // metodo render, quindi disegna passando prima per la descrizione testuale del template acquisendolo come stringa e poi per i dati da ricevere
+    }
+}
+pageelement.php<?php
+
+class PageElement
+{
+    protected $template;
+    protected $data;
+
+    public function __construct($template= "", $data= [])
+    {
+        $this->template = $template;
+        $this->data = $data;
+    }
+
+    public function render(){
+        return TemplateEngine::instance()->render($this->template, $this->data);
+    }
+}
+templateengine.php<?php
+
+// Singleton >> Design Pattern
+
+class TemplateEngine {
+    protected $engine;
+    protected static $instance=null; // attributo statico che rimane costante su tutti gli oggetti che nascono da questa classe
+
+    function __construct() {
+       $options = ['extension' => '.mst'];         // estensione nominata da noi, sennò di default dà .mustache
+        $this->engine = new \Mustache\Engine([
+            'entity_flags' => ENT_QUOTES,
+            'loader' => new \Mustache\Loader\FilesystemLoader(TEMPLATES_FOLDER, $options),   // caricamento cartella che segue tale percorso
+            'partials_loader' => new \Mustache\Loader\FilesystemLoader(TEMPLATES_FOLDER, $options) // {{> bar}}
+        ]);
+    }
+
+    function render($template, $data=[]){   
+        return $this->engine->render($template, $data);
+    }
+
+    static function instance(){   // per gli attributi statici non si usa $this, ma self
+        if(!self::$instance)
+            self::$instance = new TemplateEngine();
+        return self::$instance;
+    }
+}
+alimentari.php<?php
+
+/*require_once "Prodotti.php";*/
+
+class Alimentari extends Prodotti {
+    protected $dataScadenza;
+
+    function __construct($codiceBarre= "000", $descrizione= "prodotto", $prezzo= "0", $dataScadenza = "0")
+    {
+        parent::__construct($codiceBarre, $descrizione, $prezzo, $dataScadenza);
+        $this->dataScadenza = $dataScadenza;
+    }
+
+    public function setDataScadenza($d) {
+        $this->dataScadenza = $d;
+    }
+
+    public function getDataScadenza() {
+        return $this->dataScadenza;
+    }
+
+    public function applicaSconto(){
+        return $this->prezzo - ($this->prezzo * 20/100);
+    }
+
+
+}
+nonaimentari.php<?php
+
+/*require_once "Prodotti.php";*/
+
+class nonAlimentari extends Prodotti {
+    protected $materiale;
+
+    function __construct($codiceBarre= "000", $descrizione= "prodotto", $prezzo= "0", $materiale = "materiale")
+    {
+        parent::__construct($codiceBarre, $descrizione, $prezzo, $materiale);
+        $this->materiale = $materiale;
+    }
+
+    public function materialeRiciclabile(){
+        return $this->materiale;
+    }
+
+
+    public function applicaSconto(){
+        if($this->materiale == "carta" || $this->materiale == "vetro" || $this->materiale == "plastica"){
+            return $this->prezzo - ($this->prezzo * 10/100);
+        }else{
+             return parent::applicaSconto();
+            }
+    }
+
+
+}
+prodotti.php<?php
+
+class Prodotti {
+    protected $codiceBarre;
+    protected $descrizione;
+    protected $prezzo;
+    protected $sconto;
+
+
+    function __construct($codiceBarre= "000", $descrizione= "prodotto", $prezzo= "0"){
+        $this->codiceBarre = $codiceBarre;
+        $this->descrizione = $descrizione;
+        $this->prezzo = $prezzo;
+    }
+
+    public function getCodice() {
+        return $this->codiceBarre;
+    }
+
+    public function getDescrizione() {
+        return $this->descrizione;
+    }
+
+    public function getPrezzo() {
+        return $this->prezzo;
+    }
+
+    public function applicaSconto(){
+        return $this->prezzo - ($this->prezzo * 5/100);
+    }
+
+}
+carusel.mst
+<div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+   {{#images}}
+    <div class="carousel-item {{active}}">
+      <img src="{{src}}" class="d-block w-100" alt="{{alt}}">
+    </div>
+    {{/images}}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+head.mst<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{title}}</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link href="assets/fontawesome/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+index.mst<html>
+    <head>
+    {{> head}}
+    </head>
+    <body>
+  
+        {{#header}}
+            {{{render}}}
+        {{/header}}
+        {{#content}}
+            {{{render}}}
+        {{/content}}
+        {{#footer}}
+            {{{render}}}
+        {{/footer}}
+        {{>script}}
+    </body>
+</html>
+menu.mst<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+
+    {{#brand}}
+    <a class="navbar-brand" href="{href}">{{title}}</a>
+    {{/brand}}
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        {{#items}}
+
+            {{^hasChilds}}
+            <li class="nav-item">
+            <a class="nav-link {{active}}" {{#active}}aria-current="page"{{/active}} href="{{href}}">{{title}}</a>
+            </li>
+            {{/hasChilds}}
+
+            {{#hasChilds}}
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="{{href}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{title}}
+            </a>
+
+            <ul class="dropdown-menu">
+                {{#childs}}
+                {{^isDivider}}
+                <li><a class="dropdown-item" href="{{href}}">{{title}}</a></li>
+                {{/isDivider}}
+
+                {{#isDivider}}
+                <li><hr class="dropdown-divider"></li>
+                {{/isDivider}}
+
+                {{/childs}}
+            </ul>
+
+            </li>
+            {{/hasChilds}}
+        {{/items}}
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+prosotti.mstOOP6/templates/carousel.mst OOP6/templates/head.mst OOP6/templates/index.mst OOP6/templates/menu.mst OOP6/templates/prodotti.mst OOP6/templates/prodotto.mst OOP6/templates/script.mst
+prodotto.mst<b>Codice a barre:</b> {{getCodice}}
+<br> Descrizione: {{getDescrizione}}
+<br> Prezzo: € {{getPrezzo}}
+<br> Prezzo scontato: € {{applicaSconto}}
+
+<br> Materiale: {{#materialeRiciclabile}}{{materialeRiciclabile}}{{/materialeRiciclabile}}
+{{^materialeRiciclabile}}N.A.{{/materialeRiciclabile}}
+
+{{#getDataScadenza}}
+<br> Scade il: {{getDataScadenza}}
+{{/getDataScadenza}}<br><br>
+script.mst<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+<script src="assets/fontawesome/js/all.min.js"></script>
+
+{{#js}}
+
+{{/js}}
+htaccess 
+Options -Indexes
+ 
+RewriteEngine On
+RewriteBase /OOP6/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /OOP6/index.php [QSA,L]
+autoload.php<?php
+
+function my_autoload(string $class){
+    include __DIR__."/structure.php";
+    foreach($path as $p){
+        $filename = __DIR__.$p.$class.".php";
+        if(file_exists($filename)){
+            include_once $filename;
+            break;
+        }
+    }
+}
+
+spl_autoload_register('my_autoload');
+composer.json
+{
+    "require": {
+        "mustache/mustache": "^3.0",
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.8"
+    }
+}
+config.php<?php
+
+define("TEMPLATES_FOLDER", __DIR__."/templates");
+index.php<?php
+
+
+
+require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/autoload.php';
+require __DIR__ . '/config.php';
+
+//qui avvolgiamo la classe di slim con la nostra chiamata Application
+$app = Application::instance(); 
+
+/**
+  * The routing middleware should be added earlier than the ErrorMiddleware
+  * Otherwise exceptions thrown from it will not be handled by the middleware
+  */
+$app->addRoutingMiddleware(); // per gestire il meccanismo di routing, sono tanti piccoli componenti chiamati in cascata
+
+/**
+ * Add Error Middleware
+ *
+ * @param bool                  $displayErrorDetails -> Should be set to false in production
+ * @param bool                  $logErrors -> Parameter is passed to the default ErrorHandler
+ * @param bool                  $logErrorDetails -> Display error details in error log
+ * @param LoggerInterface|null  $logger -> Optional PSR-3 Logger  una mia interfaccia di logger che mi scriva i messaggi di errore nel file logs
+ *
+ * Note: This middleware should be added last. It will not handle any exceptions/errors
+ * for middleware added after it.
+ */
+$errorMiddleware = $app->addErrorMiddleware(true, true, true); // visualizzare a video una pagina con l'eventuale errore esploso durante l'esecuzione
+
+
+$routerConf = new RouterConfigurator($app);
+$routerConf->bootstrap();
+
+$app->setBasePath('/OOP6');
+// Run app
+$page = new Page();
+PageConfigurator::instance()->setPage($page);
+$app->run();
+menu.php<?php
+
+$menu = [
+    'brand'=>[
+        'href'=>"./",
+        'title'=>"Mio sito"
+    ],
+    'items'=> [
+            ['href'=>"./",
+            'title'=>"Home"],
+            ['href'=>"#",
+            'title'=>"Prodotti",
+            "hasChilds"=>true,
+            'childs'=>
+            [
+                ["href"=>"nonalimentari",
+                "title"=>"Non Alimentari"],
+                ["href"=>"alimentari",
+                "title"=>"Alimentari"],
+                ["isDivider"=>true],
+                ["href"=>"bevande",
+                "title"=>"Bevande"]
+            ]
+            ],
+            ['href'=>"contatti",
+            'title'=>"Contatti"]
+    ]
+];
+routes.php<?php
+
+$routes = [];
+
+//elenco delle rotte chiamate con GET
+$routes['GET'] = [
+    [
+        'pattern' => '/hello/{name:[\w\.]{5,50}@[\w]+\.[com|it]+}',
+        'callable' => 'HelloController:hello'
+    ],
+    [
+        'pattern' => '/',
+        'callable' => 'HomeController:home'
+    ]
+    ];
+
+
+//elenco delle rotte chiamate con POST
+
+
+
+//elenco delle rotte chiamate con PUT
+
+
+
+//elenco delle rotte chiamate con DELETE
+?>
+structure.php<?php
+
+$path = [
+    "/includes/",
+     "/models/",
+     "/controllers/",
+     "/configuratores/"
+    ];

@@ -1,0 +1,5 @@
+<div class="box-comandi-grigio">
+    {{#comandi}}
+        {{{render}}}
+    {{/comandi}}
+</div>

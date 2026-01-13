@@ -1,0 +1,8 @@
+<h1>login</h1>
+<form action="accedi" method="post">
+email:
+<input type="email" name="email">
+password:
+<input type="password" name="password">
+<button type="submit">invia</button>
+</form>

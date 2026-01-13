@@ -1,0 +1,36 @@
+<?php
+
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+
+//creare il template.mst e sarà un pagelement
+//creare tabella user nel database
+//scrivere la funzione che prende i dati dell'utente e va nel database. se successo:
+    //manda alla pagina ricette
+    //cambia il menu
+    //si abilita il tasto crea ricetta
+
+class AccediController extends Controller{
+    
+    function accedi(Request $request, Response $response, $args) {    
+
+        $page = PageConfigurator::instance()->getPage(); //guarda index, avevi fatto setPage
+        $page->setTitle("Accedi");
+
+        $page->add("content", new PageElement("ui/login"));
+    
+        return $response;
+        }
+    function accedi_post(Request $request, Response $response, $args){
+        $db = Database::getInstance()->getConnection();;
+        $_SESSION['dati'] = $request->getParsedBody();
+        $email_form = $_SESSION['dati']['email'];
+        $password_form = $_SESSION['dati']['password'];
+        $psw_db = $db->query("SELECT password FROM utenti WHERE utenti.email = '$email_form'")->fetchColumn();
+        if($psw_db === $password_form){
+            echo "Ok";
+        }
+        return $response;
+    }  
+}
+

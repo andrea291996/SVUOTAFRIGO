@@ -1,0 +1,8 @@
+    {{#carousel}}
+        {{{render}}}
+    {{/carousel}}
+    
+<div class="container">
+    <h1>Benvenuto nel nostro sito</h1>
+    <h3>blabla</h3>
+</div>

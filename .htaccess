@@ -1,0 +1,8 @@
+Options -Indexes
+ 
+RewriteEngine On
+RewriteBase /SVUOTAFRIGO/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /SVUOTAFRIGO/index.php [QSA,L]

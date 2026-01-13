@@ -1,0 +1,18 @@
+<html>
+    <head>
+    {{> head}}
+    </head>
+    <body>
+  
+        {{#header}}
+            {{{render}}}
+        {{/header}}
+        {{#content}}
+            {{{render}}}
+        {{/content}}
+        {{#footer}}
+            {{{render}}}
+        {{/footer}}
+        {{> script}}
+    </body>
+</html>

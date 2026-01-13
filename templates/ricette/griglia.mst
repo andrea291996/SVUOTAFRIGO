@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+
+        {{#Ricette}}
+
+            <div class="col">
+                {{> ricette/ricetta}}
+            </div>
+
+        {{/Ricette}}
+
+        {{^Ricette}}
+
+        {{/Ricette}}
+
+    </div>  
+</div>
