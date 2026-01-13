@@ -7,7 +7,7 @@
         </div>
         
         <div class="card-body p-4 bg-light">
-            <form action="/SVUOTAFRIGO/ricette" method="POST">
+            <form action="/SVUOTAFRIGO/crearicetta" method="POST">
                 
                 <div class="row mb-5">
                     <div class="col-12">
@@ -112,6 +112,13 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold fs-5">
+                    <i class="fas fa-tag me-2 text-primary"></i>Titolo della ricetta
+                    </label>
+                    <input type="text" name="nome" class="form-control form-control-lg shadow-sm" placeholder="Es. Pasta al Pomodoro" required>
                 </div>
 
                 <div class="mb-4 mt-4">

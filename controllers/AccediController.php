@@ -28,6 +28,8 @@ class AccediController extends Controller{
         if($psw_db === $password_form){
             $_SESSION['utente-registrato'] = true;
             UIMessage::setSuccess("Hai effettuato l'accesso.");
+            $utente_id = $db->query("SELCT utente_id FROM utenti WHERE email='$email_form'")->fetchColumn();
+            $_SESSION['utente_id'] = $utente_id;
             return $response->withHeader('Location', BASE_PATH.'/ricette')->withStatus(302);
         }else{
             UIMessage::setError("Email e/o password errate");
