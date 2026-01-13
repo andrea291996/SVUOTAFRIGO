@@ -4,10 +4,10 @@
 ## GENERALITA' 
     Il progetto di questa applicazione nasce dalla volontà di affrontare il problema dello spreco alimentare domestico, un tema ampiamente trattato nella letteratura scientifica, tra cui la tesi di dottorato di Silvia Gaiani (2021), che analizza le cause, le conseguenze e le possibili strategie di riduzione dello spreco nelle abitazioni. Come evidenziato dallo studio, gran parte del cibo che viene scartato potrebbe invece essere riutilizzato in maniera efficiente, se disponibili strumenti pratici per ottimizzare gli ingredienti già presenti in casa.
     In risposta a questa problematica, abbiamo deciso di sviluppare un’applicazione web che supporti gli utenti nella gestione intelligente degli ingredienti, offrendo suggerimenti pratici su ricette realizzabili con ciò che già si ha a disposizione.
-    In sintesi, questa applicazione mira a ridurre lo spreco alimentare domestico fornendo strumenti pratici per pianificare i pasti, utilizzare al meglio gli ingredienti disponibili e adattare le ricette alle necessità individuali. L’approccio integrato tra gestione degli ingredienti, filtri intelligenti e inclusivi, profilazione utenti e possibilità di inserimento ricette personali permette di trasformare il concetto di prevenzione dello spreco in un’azione concreta e quotidiana, in linea con le strategie individuate dalla tesi di Gaiani.
-    
-## SCOPO
 
+## SCOPO
+    Questa applicazione mira a ridurre lo spreco alimentare domestico fornendo strumenti pratici per pianificare i pasti, utilizzare al meglio gli ingredienti disponibili e adattare le ricette alle necessità individuali. L’approccio integrato tra gestione degli ingredienti, filtri intelligenti e inclusivi, profilazione utenti e possibilità di inserimento ricette personali permette di trasformare il concetto di prevenzione dello spreco in un’azione concreta e quotidiana, in linea con le strategie individuate dalla tesi di Gaiani.
+    
 ## APPLICABILITA'
 
 ## RESPONSABILITA'
