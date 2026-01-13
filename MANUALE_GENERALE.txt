@@ -22,8 +22,11 @@
         -senza crostacei
         -senza frutta secca
     In questo modo l’app offre un’esperienza personalizzata e sicura, rendendo le ricette accessibili a chiunque indipendentemente dalle proprie scelte alimentari o restrizioni.
-## RESPONSABILITA'
 
+## RESPONSABILITA'
+    Il progetto è gestito da un team con ruoli ben definiti: Andrea si occupa dello sviluppo e della manutenzione dell’applicazione, Irene cura la grafica e l’interfaccia utente, Kappy si occupa della parte commerciale, mentre AJ è responsabile della redazione della documentazione tecnica.
+    Per garantire qualità e affidabilità, è prevista la possibilità per gli utenti di segnalare errori o bug, in modo da facilitare interventi rapidi e miglioramenti continui dell’app.
+    
 ## RIFERIMENTI
 
 ## OPERABILITA'
