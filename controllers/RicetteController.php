@@ -53,7 +53,7 @@ class RicetteController extends Controller {
             UIMessage::setError("Seleziona almeno un parametro.");
             return $response->withHeader('Location', BASE_PATH . '/ricette')->withStatus(302);
         }
-        $db = Database::getInstance()->getConnection();;
+        $db = Database::getInstance()->getConnection();
         $parametriQuery = [];  
         //inizio della query
         $sql = "SELECT r.* FROM ricette r

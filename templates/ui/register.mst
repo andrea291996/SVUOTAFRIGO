@@ -1,1 +1,7 @@
 <h1>registrati</h1>
+<form action="registrati" method="post">
+Nome:<input name="nome">
+Email:<input name="email" type="email">
+Password:<input name="password" type="password">
+<button type="submit">Registrati</button>
+</form>

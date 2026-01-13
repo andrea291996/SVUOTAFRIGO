@@ -1,9 +1,16 @@
 <?php
 
 $base = "/SVUOTAFRIGO"; 
-$utenteregistrato = false;
-
-$utente = $utenteregistrato ? "Andrea" : "SVUOTAFRIGO";
+$utenteregistrato=false;
+$utente = "Sconosciuto";
+if(isset($_SESSION['utente-registrato'])){
+    $db = Database::getInstance()->getConnection();
+    $email =$_SESSION['dati']['email'];
+    $sql = "SELECT nome FROM utenti WHERE email='$email'";
+    $stmt = $db->query($sql);
+    $utente = $stmt->fetchColumn();
+    $utenteregistrato=true;
+}
 
 $menu = [
     'brand'=>['href'=> $base . "/", 'title'=>"Ciao ".$utente],

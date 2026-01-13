@@ -23,6 +23,10 @@ $routes['GET'] = [
     [
         'pattern' => '/registrati',
         'callable' => 'RegistratiController:registrati'
+    ],
+    [
+        'pattern' => '/esci',
+        'callable' => 'EsciController:esci'
     ]
 ];
 
@@ -37,7 +41,7 @@ $routes['POST'] = [
     ],
     [
         'pattern' => '/registrati',
-        'callable' => 'RegistratiController:index'
+        'callable' => 'RegistratiController:registrati_post'
     ],
     [
         'pattern' => '/esci',

@@ -15,7 +15,7 @@ class RegistratiController extends Controller{
         return $response;
     }
 
-    function registratii_post(Request $request, Response $response, $args){
+    function registrati_post(Request $request, Response $response, $args){
         $esito_registrazione=true;
         if($esito_registrazione){
             UIMessage::setSuccess("Registrazione effettuata con successo.");
