@@ -8,15 +8,16 @@ $utente = $utenteregistrato ? "Andrea" : "SVUOTAFRIGO";
 $menu = [
     'brand'=>['href'=> $base . "/", 'title'=>"Ciao ".$utente],
     'items'=> [
-        ['href'=> $base . "/", 'title'=>"Ricette"],
-        ['href'=> $base . "/crearicetta", 'title'=>"Crea Ricetta"],
-        ['href'=> $base . "/preferite", 'title'=>"Preferite"]
+        ['href'=> $base . "/", 'title'=>"Ricette"]
     ]
 ];
 
 if($utenteregistrato){
     $menu['items'][] = ['href'=> $base . "/esci", 'title'=>"Esci"];
+    $menu['items'][] = ['href'=> $base . "/crearicetta", 'title'=>"Crea Ricetta"];
+    $menu['items'][] = ['href'=> $base . "/preferite", 'title'=>"Preferite"];
 }else{
+    
     $menu['items'][] = ['href'=> $base . "/accedi", 'title'=>"Accedi"];
     $menu['items'][] = ['href'=> $base . "/registrati", 'title'=>"Registrati"];
 }
