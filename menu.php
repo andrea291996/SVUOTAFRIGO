@@ -15,7 +15,8 @@ if(isset($_SESSION['utente-registrato'])){
 $menu = [
     'brand'=>['href'=> $base . "/", 'title'=>"Ciao ".$utente],
     'items'=> [
-        ['href'=> $base . "/", 'title'=>"Ricette"]
+        ['href'=> $base . "/assistenza", 'title'=>"Assistenza"],
+        ['href'=> $base . "/", 'title'=>"Ricette"]   
     ]
 ];
 

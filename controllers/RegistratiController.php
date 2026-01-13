@@ -8,7 +8,7 @@ class RegistratiController extends Controller{
     function registrati(Request $request, Response $response, $args) {    
 
         $page = PageConfigurator::instance()->getPage(); //guarda index, avevi fatto setPage
-        $page->setTitle("Accedi");
+        $page->setTitle("Registrati");
 
         $page->add("content", new PageElement("ui/register"));
     
