@@ -21,3 +21,9 @@ operabilità = manuale dell'utente
     come funziona il software
     diviso in capitoli
     installazione, registrazione, risoluzione dei problemi, etc
+guida rapida
+
+uso dettagliato
+
+troubleshooting
+    faq
