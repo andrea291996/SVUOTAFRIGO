@@ -41,7 +41,6 @@
     Aperto nel senso che l'utente interagisce con l'applicazione inserendo le sue ricette
 
 ## STRUMENTI
-    VSCODE
     GIT
     PHP
     JS
