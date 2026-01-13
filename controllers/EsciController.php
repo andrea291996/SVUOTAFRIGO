@@ -8,7 +8,7 @@ class EsciController extends Controller{
     
     function esci(Request $request, Response $response, $args) {    
         session_destroy();
-        return $response->withHeader('Location', BASE_PATH . '/accedi')->withStatus(302);
+        return $response->withHeader('Location', BASE_PATH . '/')->withStatus(302);
     }
 }
 
