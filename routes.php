@@ -23,6 +23,10 @@ $routes['GET'] = [
     [
         'pattern' => '/registrati',
         'callable' => 'RegistratiController:registrati'
+    ],
+    [
+        'pattern' => '/esci',
+        'callable' => 'EsciController:esci'
     ]
 ];
 
