@@ -44,6 +44,7 @@ class RicetteController extends Controller {
     }
 
     function mostraRisultati(Request $request, Response $response, $args) {
+        $idUtente = $_SESSION['utente-id'] ?? null;
         if (session_status() === PHP_SESSION_NONE) session_start();
         $page = PageConfigurator::instance()->getPage();
         $page->setTitle("Risultati Ricerca");
@@ -54,12 +55,15 @@ class RicetteController extends Controller {
             return $response->withHeader('Location', BASE_PATH . '/ricette')->withStatus(302);
         }
         $db = Database::getInstance()->getConnection();
-        $parametriQuery = [];  
+        $parametriQuery = []; 
+        if($idUtente) {
+            $parametriQuery[] = $idUtente;
+        } 
         //inizio della query
         $sql = "SELECT r.* FROM ricette r
                 JOIN ricette_ingredienti ri ON r.id = ri.id_ricetta
                 JOIN ingredienti i ON ri.id_ingrediente = i.id
-                WHERE 1=1";
+                WHERE (r.id_utente IS NULL" . ($idUtente ? " OR r.id_utente = ?" : "") . ")";
         $filtriDiete = ['dieta_musulmana', 'dieta_ebraica', 'vegetariana', 'vegana', 
                            'senza_glutine', 'senza_lattosio', 'senza_crostacei', 'senza_frutta_secca'];
         $filtriTipologia = ['antipasto', 'primo', 'secondo', 'contorno', 'dolce'];

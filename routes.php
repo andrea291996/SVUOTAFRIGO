@@ -31,6 +31,10 @@ $routes['GET'] = [
     [
         'pattern' => '/assistenza',
         'callable' => 'AssistenzaController:assistenza'
+    ],
+    [
+        'pattern' => '/crearicetta',
+        'callable' => 'CreaRicettaController:crearicetta'
     ]
 ];
 
@@ -48,8 +52,8 @@ $routes['POST'] = [
         'callable' => 'RegistratiController:registrati_post'
     ],
     [
-        'pattern' => '/esci',
-        'callable' => 'EsciController:index'
+        'pattern' => '/crearicetta',
+        'callable' => 'CreaRicettaController:crearicetta_post'
     ]
 ];
 ?>
