@@ -13,14 +13,12 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 class AccediController extends Controller{
     
     function accedi(Request $request, Response $response, $args) {    
-
         $page = PageConfigurator::instance()->getPage(); //guarda index, avevi fatto setPage
         $page->setTitle("Accedi");
-
         $page->add("content", new PageElement("ui/login"));
-    
         return $response;
         }
+
     function accedi_post(Request $request, Response $response, $args){
         $db = Database::getInstance()->getConnection();;
         $_SESSION['dati'] = $request->getParsedBody();
@@ -28,9 +26,13 @@ class AccediController extends Controller{
         $password_form = $_SESSION['dati']['password'];
         $psw_db = $db->query("SELECT password FROM utenti WHERE utenti.email = '$email_form'")->fetchColumn();
         if($psw_db === $password_form){
-            echo "Ok";
+            $_SESSION['utente-registrato'] = true;
+            UIMessage::setSuccess("Hai effettuato l'accesso.");
+            return $response->withHeader('Location', BASE_PATH.'/ricette')->withStatus(302);
+        }else{
+            UIMessage::setError("Email e/o password errate");
+            return $response->withHeader('Location', BASE_PATH.'/accedi')->withStatus(302);
         }
-        return $response;
     }  
 }
 
