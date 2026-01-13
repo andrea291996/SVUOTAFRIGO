@@ -32,4 +32,4 @@
     Inoltre, per garantire un’interfaccia accessibile a tutti gli utenti, ci si è ispirati alle Linee guida per l’accessibilità dei contenuti web (WCAG 2.1), che definiscono i criteri per rendere le applicazioni fruibili anche a persone con disabilità o esigenze specifiche.
     Infine, il progetto ha considerato best practice per la sicurezza, la gestione dei dati e la profilazione utenti, secondo le raccomandazioni della comunità degli sviluppatori web.
 
-## OPERABILITA'
+
