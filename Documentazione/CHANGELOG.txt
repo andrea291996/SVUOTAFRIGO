@@ -1,37 +1,37 @@
-1.0	1-FORM in cui si inseriscono ingredienti disponibili (nome) [JAVASCRIPT]
-	2-pagina in cui ci sono le RICETTE FILTRATE per gli ingredienti inseriti (algoritmo versione 1) [JAVASCRIPT]
-	3-pagina ELENCO COMPLETO ricette (nome, ingredienti, procedimento) [JSON]
+1.0	1)FORM in cui si inseriscono ingredienti disponibili (nome) [JAVASCRIPT]
+	2)pagina in cui ci sono le RICETTE FILTRATE per gli ingredienti inseriti (algoritmo versione 1) [JAVASCRIPT]
+	3)pagina ELENCO COMPLETO ricette (nome, ingredienti, procedimento) [JSON]
 
 	#################################################
 
-1.1	1-FORM in cui si inseriscono ingredienti disponibili (nome, quantità) [JAVASCRIPT]
-	2-pagina in cui ci sono le RICETTE FILTRATE per gli ingredienti inseriti (algoritmo versione 1) [JAVASCRIPT]
-	3-pagina ELENCO COMPLETO ricette (nome, ingredienti, procedimento) [JSON]
+1.1	1)FORM in cui si inseriscono ingredienti disponibili (nome, quantità) [JAVASCRIPT]
+	2)pagina in cui ci sono le RICETTE FILTRATE per gli ingredienti inseriti (algoritmo versione 1) [JAVASCRIPT]
+	3)pagina ELENCO COMPLETO ricette (nome, ingredienti, procedimento) [JSON]
 
 	* NEW: pagina FORM per inserire una ricetta da parte dell'utente [JAVASCRIPT]
 
 	#################################################
 
-1.2	1-FORM in cui si inseriscono ingredienti disponibili (nome, quantità) [JAVASCRIPT]
-	2-pagina in cui ci sono le RICETTE FILTRATE per gli ingredienti inseriti (algoritmo versione 2) [JAVASCRIPT]
-	3-pagina ELENCO COMPLETO ricette (nome, ingredienti, procedimento) [JSON]
-	4-pagina FORM per inserire una ricetta da parte dell'utente [JAVASCRIPT]
+1.2	1)FORM in cui si inseriscono ingredienti disponibili (nome, quantità) [JAVASCRIPT]
+	2)pagina in cui ci sono le RICETTE FILTRATE per gli ingredienti inseriti (algoritmo versione 2) [JAVASCRIPT]
+	3)pagina ELENCO COMPLETO ricette (nome, ingredienti, procedimento) [JSON]
+	4)pagina FORM per inserire una ricetta da parte dell'utente [JAVASCRIPT]
 	
-	* 3-TASTO FILTRA in ELENCO RICETTE [JAVASCRIPT]
-	* 3-Aggiunta parametri primo, secondo, dolce etc per ogni ricetta
+	* 3)TASTO FILTRA in ELENCO RICETTE [JAVASCRIPT]
+	* 3)Aggiunta parametri primo, secondo, dolce etc per ogni ricetta
 	* NEW: pagina FORM in cui ci si registra e si fa login [PHP] [DATABASE INNODB versione 1]
 	
 	#################################################
 	#################### DA FARE ####################
 	#################################################
 
-2.0	1-FORM in cui si inseriscono ingredienti disponibili [PHP]
- 	2-pagina in cui ci sono le RICETTE FILTRATE per gli ingredienti inseriti (algoritmo versione 3) [PHP]
-	3-pagina ELENCO COMPLETO ricette con TASTO FILTRA (nome, ingredienti, procedimento, diete, allergie, antipasto, primo, secondo, contorno, dolce) [PHP]
-	4-pagina FORM per inserire una ricetta da parte dell'utente [PHP]
-	5-pagina FORM in cui ci si registra e si fa login [PHP] [DATABASE INNODB versione 2]
+2.0	1)FORM in cui si inseriscono ingredienti disponibili [PHP]
+ 	2)pagina in cui ci sono le RICETTE FILTRATE per gli ingredienti inseriti (algoritmo versione 3) [PHP]
+	3)pagina ELENCO COMPLETO ricette con TASTO FILTRA (nome, ingredienti, procedimento, diete, allergie, antipasto, primo, secondo, contorno, dolce) [PHP]
+	4)pagina FORM per inserire una ricetta da parte dell'utente [PHP]
+	5)pagina FORM in cui ci si registra e si fa login [PHP] [DATABASE INNODB versione 2]
 
-	* NEW: 2-aggiunta parametri celiachia, allergia, diete
+	* NEW: 2)aggiunta parametri celiachia, allergia, diete
 	* NEW: pagina con le ricette inserite dall'utente
 	* NEW: modifica database per profilazione utenti [DATABASE INNODB versione 2]
 	* NEW: modifica database per ricette [DATABASE INNODB versione 2]
