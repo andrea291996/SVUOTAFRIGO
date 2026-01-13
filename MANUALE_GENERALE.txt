@@ -7,9 +7,21 @@
 
 ## SCOPO
     Questa applicazione mira a ridurre lo spreco alimentare domestico fornendo strumenti pratici per pianificare i pasti, utilizzare al meglio gli ingredienti disponibili e adattare le ricette alle necessità individuali. L’approccio integrato tra gestione degli ingredienti, filtri intelligenti e inclusivi, profilazione utenti e possibilità di inserimento ricette personali permette di trasformare il concetto di prevenzione dello spreco in un’azione concreta e quotidiana, in linea con le strategie individuate dalla tesi di Gaiani.
-    
-## APPLICABILITA'
 
+## APPLICABILITA'
+    L’applicazione è pensata per chiunque voglia ridurre lo spreco alimentare domestico e utilizzare al meglio gli ingredienti già presenti in dispensa, con ricette gustose e adatte alle proprie necessità.
+    In particolare, l’app è sensibile esigenze alimentari diverse, grazie a filtri inclusivi che permettono di selezionare ricette compatibili con:
+    -Diete religiose o etiche: 
+        -dieta musulmana
+        -dieta ebraica
+        -vegetariana
+        -vegana
+    -Intolleranze o allergie: 
+        -senza glutine
+        -senza lattosio
+        -senza crostacei
+        -senza frutta secca
+    In questo modo l’app offre un’esperienza personalizzata e sicura, rendendo le ricette accessibili a chiunque indipendentemente dalle proprie scelte alimentari o restrizioni.
 ## RESPONSABILITA'
 
 ## RIFERIMENTI
