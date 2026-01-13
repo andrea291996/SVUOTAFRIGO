@@ -1,0 +1,195 @@
+[1mdiff --git a/CHANGELOG.txt b/CHANGELOG.txt[m
+[1mdeleted file mode 100644[m
+[1mindex 07af20e..0000000[m
+[1m--- a/CHANGELOG.txt[m
+[1m+++ /dev/null[m
+[36m@@ -1,39 +0,0 @@[m
+[31m-1.0	1-FORM in cui si inseriscono ingredienti disponibili (nome) [JAVASCRIPT][m
+[31m-	2-pagina in cui ci sono le RICETTE FILTRATE per gli ingredienti inseriti (algoritmo versione 1) [JAVASCRIPT][m
+[31m-	3-pagina ELENCO COMPLETO ricette (nome, ingredienti, procedimento) [JSON][m
+[31m-[m
+[31m-	#################################################[m
+[31m-[m
+[31m-1.1	1-FORM in cui si inseriscono ingredienti disponibili (nome, quantità) [JAVASCRIPT][m
+[31m-	2-pagina in cui ci sono le RICETTE FILTRATE per gli ingredienti inseriti (algoritmo versione 1) [JAVASCRIPT][m
+[31m-	3-pagina ELENCO COMPLETO ricette (nome, ingredienti, procedimento) [JSON][m
+[31m-[m
+[31m-	* NEW: pagina FORM per inserire una ricetta da parte dell'utente [JAVASCRIPT][m
+[31m-[m
+[31m-	#################################################[m
+[31m-[m
+[31m-1.2	1-FORM in cui si inseriscono ingredienti disponibili (nome, quantità) [JAVASCRIPT][m
+[31m-	2-pagina in cui ci sono le RICETTE FILTRATE per gli ingredienti inseriti (algoritmo versione 2) [JAVASCRIPT][m
+[31m-	3-pagina ELENCO COMPLETO ricette (nome, ingredienti, procedimento) [JSON][m
+[31m-	4-pagina FORM per inserire una ricetta da parte dell'utente [JAVASCRIPT][m
+[31m-	[m
+[31m-	* 3-TASTO FILTRA in ELENCO RICETTE [JAVASCRIPT][m
+[31m-	* 3-Aggiunta parametri primo, secondo, dolce etc per ogni ricetta[m
+[31m-	* NEW: pagina FORM in cui ci si registra e si fa login [PHP] [DATABASE INNODB versione 1][m
+[31m-	[m
+[31m-	#################################################[m
+[31m-	#################### DA FARE ####################[m
+[31m-	#################################################[m
+[31m-[m
+[31m-2.0	1-FORM in cui si inseriscono ingredienti disponibili [PHP][m
+[31m- 	2-pagina in cui ci sono le RICETTE FILTRATE per gli ingredienti inseriti (algoritmo versione 3) [PHP][m
+[31m-	3-pagina ELENCO COMPLETO ricette con TASTO FILTRA (nome, ingredienti, procedimento, diete, allergie, antipasto, primo, secondo, contorno, dolce) [PHP][m
+[31m-	4-pagina FORM per inserire una ricetta da parte dell'utente [PHP][m
+[31m-	5-pagina FORM in cui ci si registra e si fa login [PHP] [DATABASE INNODB versione 2][m
+[31m-[m
+[31m-	* NEW: 2-aggiunta parametri celiachia, allergia, diete[m
+[31m-	* NEW: pagina con le ricette inserite dall'utente[m
+[31m-	* NEW: modifica database per profilazione utenti [DATABASE INNODB versione 2][m
+[31m-	* NEW: modifica database per ricette [DATABASE INNODB versione 2][m
+[31m-[m
+[31m-	[m
+[1mdiff --git a/DECISION_LOG.txt b/DECISION_LOG.txt[m
+[1mdeleted file mode 100644[m
+[1mindex 2c40874..0000000[m
+[1m--- a/DECISION_LOG.txt[m
+[1m+++ /dev/null[m
+[36m@@ -1,68 +0,0 @@[m
+[31m-[m
+[31m-# NOME PROGETTO [m
+[31m-    SVUOTAFRIGO[m
+[31m-[m
+[31m-## TEAM[m
+[31m-    Andrea[m
+[31m-    Irene [m
+[31m-    Kappy[m
+[31m-    AJ[m
+[31m-[m
+[31m-## UTENTE FINALE[m
+[31m-    Persona comune[m
+[31m-    ### CATEGORIE[m
+[31m-        intolleranze e/o allergie alimentari[m
+[31m-        diete [m
+[31m-[m
+[31m-## RISORSE E RIFERIMENTI ESTERNI[m
+[31m-    freepick per i media[m
+[31m-    "Lo spreco alimentare domestico in italia: stime, cause ed impatti" testi di dottorato [m
+[31m-        https://amsdottorato.unibo.it/id/eprint/5916/1/silvia_gaiani_spreco_alimentare_domestico.pdf[m
+[31m-[m
+[31m-## DISPOSITIVI[m
+[31m-    Mobile[m
+[31m-    Tablet[m
+[31m-    Pc [m
+[31m-[m
+[31m-## USUFRUIBILITA'[m
+[31m-    Solo Online[m
+[31m-[m
+[31m-## TEMPI[m
+[31m-    16 ore [m
+[31m-[m
+[31m-## COSTI[m
+[31m-    €45.000[m
+[31m-[m
+[31m-## PUBBLICITA'[m
+[31m-    Social media[m
+[31m-    Spotify[m
+[31m-[m
+[31m-## MANUTENIBILITA'[m
+[31m-    Aperto nel senso che l'utente interagisce con l'applicazione inserendo le sue ricette[m
+[31m-[m
+[31m-## STRUMENTI[m
+[31m-    VSCODE[m
+[31m-    GIT[m
+[31m-    PHP[m
+[31m-    JS[m
+[31m-    HTML[m
+[31m-    CSS[m
+[31m-    MYSQL[m
+[31m-    INNODB[m
+[31m-    MARKDOWN[m
+[31m-[m
+[31m-## TESTING[m
+[31m-    Da effettuare sulla logica query di interrogazione del database [m
+[31m-[m
+[31m-## DOCUMENTAZIONE INTERNA[m
+[31m-    Changelog[m
+[31m-    Manuale di manutenzione[m
+[31m-    Diagramma di flusso[m
+[31m-[m
+[31m-## DOCUMENTAZIONE ESTERNA[m
+[31m-    Manuele utente[m
+[31m-    Termini e condizioni[m
+[31m-    FAQ[m
+[31m-[m
+[31m-## DOCUMENTAZIONE CARTACEA[m
+[31m-    Manuale manutenzione [m
+\ No newline at end of file[m
+[1mdiff --git a/MANUALE_GENERALE.txt b/MANUALE_GENERALE.txt[m
+[1mdeleted file mode 100644[m
+[1mindex e69bfa0..0000000[m
+[1m--- a/MANUALE_GENERALE.txt[m
+[1m+++ /dev/null[m
+[36m@@ -1,35 +0,0 @@[m
+[31m-[m
+[31m-# MANUALE GENERALE[m
+[31m-[m
+[31m-## GENERALITA' [m
+[31m-    Il progetto di questa applicazione nasce dalla volontà di affrontare il problema dello spreco alimentare domestico, un tema ampiamente trattato nella letteratura scientifica, tra cui la tesi di dottorato di Silvia Gaiani (2021), che analizza le cause, le conseguenze e le possibili strategie di riduzione dello spreco nelle abitazioni. Come evidenziato dallo studio, gran parte del cibo che viene scartato potrebbe invece essere riutilizzato in maniera efficiente, se disponibili strumenti pratici per ottimizzare gli ingredienti già presenti in casa.[m
+[31m-    In risposta a questa problematica, abbiamo deciso di sviluppare un’applicazione web che supporti gli utenti nella gestione intelligente degli ingredienti, offrendo suggerimenti pratici su ricette realizzabili con ciò che già si ha a disposizione.[m
+[31m-[m
+[31m-## SCOPO[m
+[31m-    Questa applicazione mira a ridurre lo spreco alimentare domestico fornendo strumenti pratici per pianificare i pasti, utilizzare al meglio gli ingredienti disponibili e adattare le ricette alle necessità individuali. L’approccio integrato tra gestione degli ingredienti, filtri intelligenti e inclusivi, profilazione utenti e possibilità di inserimento ricette personali permette di trasformare il concetto di prevenzione dello spreco in un’azione concreta e quotidiana, in linea con le strategie individuate dalla tesi di Gaiani.[m
+[31m-[m
+[31m-## APPLICABILITA'[m
+[31m-    L’applicazione è pensata per chiunque voglia ridurre lo spreco alimentare domestico e utilizzare al meglio gli ingredienti già presenti in dispensa, con ricette gustose e adatte alle proprie necessità.[m
+[31m-    In particolare, l’app è sensibile esigenze alimentari diverse, grazie a filtri inclusivi che permettono di selezionare ricette compatibili con:[m
+[31m-    -Diete religiose o etiche: [m
+[31m-        -dieta musulmana[m
+[31m-        -dieta ebraica[m
+[31m-        -vegetariana[m
+[31m-        -vegana[m
+[31m-    -Intolleranze o allergie: [m
+[31m-        -senza glutine[m
+[31m-        -senza lattosio[m
+[31m-        -senza crostacei[m
+[31m-        -senza frutta secca[m
+[31m-    In questo modo l’app offre un’esperienza personalizzata e sicura, rendendo le ricette accessibili a chiunque indipendentemente dalle proprie scelte alimentari o restrizioni.[m
+[31m-[m
+[31m-## RESPONSABILITA'[m
+[31m-    Il progetto è gestito da un team con ruoli ben definiti: Andrea si occupa dello sviluppo e della manutenzione dell’applicazione, Irene cura la grafica e l’interfaccia utente, Kappy si occupa della parte commerciale, mentre AJ è responsabile della redazione della documentazione tecnica.[m
+[31m-    Per garantire qualità e affidabilità, è prevista la possibilità per gli utenti di segnalare errori o bug, in modo da facilitare interventi rapidi e miglioramenti continui dell’app.[m
+[31m-[m
+[31m-## RIFERIMENTI[m
+[31m-    La progettazione e lo sviluppo dell’applicazione si sono basati su diversi riferimenti teorici e tecnici. In particolare, la tesi di dottorato di Silvia Gaiani, “Spreco alimentare domestico: cause, conseguenze e strategie di riduzione” (2021), ha fornito un quadro completo sul fenomeno dello spreco alimentare e sulle strategie di prevenzione, da cui è nata l’idea dell’app.[m
+[31m-    Inoltre, per garantire un’interfaccia accessibile a tutti gli utenti, ci si è ispirati alle Linee guida per l’accessibilità dei contenuti web (WCAG 2.1), che definiscono i criteri per rendere le applicazioni fruibili anche a persone con disabilità o esigenze specifiche.[m
+[31m-    Infine, il progetto ha considerato best practice per la sicurezza, la gestione dei dati e la profilazione utenti, secondo le raccomandazioni della comunità degli sviluppatori web.[m
+[31m-[m
+[31m-[m
+[1mdiff --git a/SVUOTAFRIGO.pages b/SVUOTAFRIGO.pages[m
+[1mdeleted file mode 100644[m
+[1mindex 46559bc..0000000[m
+Binary files a/SVUOTAFRIGO.pages and /dev/null differ
+[1mdiff --git a/documentazione.txt b/documentazione.txt[m
+[1mdeleted file mode 100644[m
+[1mindex 033fe42..0000000[m
+[1m--- a/documentazione.txt[m
+[1m+++ /dev/null[m
+[36m@@ -1,23 +0,0 @@[m
+[31m-[m
+[31m-su quali testi/documenti mi sono basato?[m
+[31m-    libro ricette[m
+[31m-    studi sullo spreco[m
+[31m-[m
+[31m-generalità[m
+[31m-    breve descrizione dei motivi per i quali è nata questa idea con riferimenti a norme o statistiche o studi etc[m
+[31m-    "è stato notato che statiscamente si butta via un sacco di cibo etc"[m
+[31m-    spiegare da cosa è nata questa idea[m
+[31m-scopo - prerequisiti[m
+[31m-    obiettivi del progetto[m
+[31m-applicabilità[m
+[31m-    a chi si rivolge[m
+[31m-    quali categorie di utenti o quali ambiti[m
+[31m-responsabilità[m
+[31m-    chi fa cosa[m
+[31m-    manutentori, sviluppatori, marketing, servizio clienti etc[m
+[31m-riferimenti[m
+[31m-    libri, articoli, norme, studi[m
+[31m-operabilità = manuale dell'utente[m
+[31m-    come funziona il software[m
+[31m-    diviso in capitoli[m
+[31m-    installazione, registrazione, risoluzione dei problemi, etc[m
+\ No newline at end of file[m
