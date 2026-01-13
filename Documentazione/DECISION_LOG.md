@@ -52,7 +52,10 @@
     MARKDOWN
 
 ## TESTING
-    Da effettuare sulla logica query di interrogazione del database 
+    Da effettuare su:
+    -logica query di interrogazione del database
+    -form login
+    -form registrazione
 
 ## DOCUMENTAZIONE INTERNA
     Changelog
