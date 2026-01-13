@@ -13,7 +13,17 @@ class RegistratiController extends Controller{
         $page->add("content", new PageElement("ui/register"));
     
         return $response;
+    }
+
+    function registratii_post(Request $request, Response $response, $args){
+        $esito_registrazione=true;
+        if($esito_registrazione){
+            UIMessage::setSuccess("Registrazione effettuata con successo.");
+            return $response->withHeader('Location', BASE_PATH.'/accedi')->withStatus(302);
+        }else{
+            UIMessage::setError("Email già presente.");
+            return $response->withHeader('Location', BASE_PATH.'/registrati')->withStatus(302);
         }
-        
+    }      
 }
 

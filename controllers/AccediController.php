@@ -33,7 +33,6 @@ class AccediController extends Controller{
             UIMessage::setError("Email e/o password errate");
             return $response->withHeader('Location', BASE_PATH.'/accedi')->withStatus(302);
         }
-        
     }  
 }
 
