@@ -33,15 +33,19 @@ function crearicetta_post(Request $request, Response $response, $args){
         $senza_lattosio = isset($dati_ricetta['senza_lattosio']) ? 1 : 0;
         $senza_crostacei = isset($dati_ricetta['senza_crostacei']) ? 1 : 0;
         $senza_frutta_secca = isset($dati_ricetta['senza_frutta_secca']) ? 1 : 0;
-
+        //var_dump($ingredienti);
+        //die();
         $stmt = $db->prepare("SELECT COUNT(*) FROM ricette WHERE titolo = :titolo");
         $stmt->execute([':titolo' => $titolo]);
 
         if($stmt->fetchColumn() > 0){
             UIMessage::setError("Ricetta con lo stesso nome già presente. Per favore modifica il nome.");
-            return $response->withHeader('Location', BASE_PATH.'/crea-ricetta')->withStatus(302);
+            return $response->withHeader('Location', BASE_PATH.'/crearicetta')->withStatus(302);
         }
-
+        //inserisco la ricetta nella tabella ricette e prendo il suo id
+        //sistema gli ingredienti. ne prendo uno, guardo se c'è: se si prendo il suo id, se non c'è lo inserisco e prendo il suo id.
+        //gli ingredienti vanno inseriti nella tabella ingredienti con nome e id.
+        //poi inserisco nella tabella ricette_ingredienti l'id della ricetta con l'id degli ingredienti
         $sql = "INSERT INTO ricette 
                 (titolo, procedimento, tipologia, dieta_musulmana, dieta_ebraica, vegetariana, vegana, senza_glutine, senza_lattosio, senza_crostacei, senza_frutta_secca, id_utente)
                 VALUES 
