@@ -44,6 +44,7 @@ class RicetteController extends Controller {
     }
 
     function mostraRisultati(Request $request, Response $response, $args) {
+        //ATTENZIONE: SE INSERISCO LO STESSO INGREDIENTE DUE VOLTE NON FUNZIONA!! DA CORREGGERE ASSOLUTAMENTE
         $idUtente = $_SESSION['utente-id'] ?? null;
         if (session_status() === PHP_SESSION_NONE) session_start();
         $page = PageConfigurator::instance()->getPage();
