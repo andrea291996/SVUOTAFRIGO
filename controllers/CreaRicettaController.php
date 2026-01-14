@@ -67,11 +67,12 @@ function crearicetta_post(Request $request, Response $response, $args){
             ':id_utente' => $id_utente
         ]);
         $id_ricetta = $db->lastInsertId();
+        //DA CAMBIAREEEEEEEEEEEEEEEEEEE
         foreach($ingredienti as $ing) {
-            $stmt = $db->prepare("INSERT INTO ricette_ingredienti (id_ricetta, ingrediente) VALUES (:id_ricetta, :ingrediente)");
+            $stmt = $db->prepare("INSERT INTO ricette_ingredienti (id_ricetta, id_ingrediente) VALUES (:id_ricetta, :id_ingrediente)");
             $stmt->execute([
         ':id_ricetta' => $id_ricetta,
-        ':ingrediente' => $ing
+        ':id_ingrediente' => $ing
         ]);
 }
 
