@@ -23,7 +23,7 @@ $menu = [
 if($utenteregistrato){
     $menu['items'][] = ['href'=> $base . "/esci", 'title'=>"Esci"];
     $menu['items'][] = ['href'=> $base . "/crearicetta", 'title'=>"Crea Ricetta"];
-    $menu['items'][] = ['href'=> $base . "/miericette", 'title'=>"Le Mie Ricette"];
+    $menu['items'][] = ['href'=> $base . "/lemiericette", 'title'=>"Le Mie Ricette"];
 }else{
     
     $menu['items'][] = ['href'=> $base . "/accedi", 'title'=>"Accedi"];

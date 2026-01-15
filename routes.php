@@ -35,6 +35,11 @@ $routes['GET'] = [
     [
         'pattern' => '/crearicetta',
         'callable' => 'CreaRicettaController:crearicetta'
+    ],
+
+    [
+        'pattern' => '/lemiericette',
+        'callable'=>'MieRicetteController:miericette'
     ]
 ];
 
