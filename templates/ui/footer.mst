@@ -2,7 +2,7 @@
 
  
  
- 
+ <footer>
         <div class="container">
             <h4 class="mb-3">Link utili:</h4>
 
@@ -24,3 +24,4 @@
         </div>
     </div>
 
+</footer>
