@@ -21,19 +21,19 @@ class ContattiController extends Controller {
     //@method POST
     //@url /contatti
     //@type Service
-    public function post(Request $request, Response $response, $args){
+    public function contatti_post(Request $request, Response $response, $args){
         $data = $request->getParsedBody();
         $email = $data["email"];
         $message = $data["message"];
     
         if(empty($email) || empty($message)){
             UIMessage::setError("Email e/o il messaggio sono vuori");
-            return $response->withHeader("Location", "./contatti")->withStatus(302);
+            return $response->withHeader("Location", "./assistenza")->withStatus(302);
         }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
            UIMessage::setError("Non è una email valida");
-            return $response->withHeader("Location", "./contatti")->withStatus(302);
+            return $response->withHeader("Location", "./assistenza")->withStatus(302);
         }
 
         $file = getcwd()."/messages/contatti.json"; 
@@ -50,7 +50,7 @@ class ContattiController extends Controller {
         $contact = json_encode($data); 
         file_put_contents($file, $contact); 
         UIMessage::setSuccess("Il tuo messaggio è stato preso in consegna!!!");
-        return $response->withHeader("Location", "./contatti")->withStatus(302);
+        return $response->withHeader("Location", "./assistenza")->withStatus(302);
     }
     
 }
