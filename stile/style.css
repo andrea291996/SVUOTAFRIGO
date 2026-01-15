@@ -28,8 +28,13 @@ a.button {
  width: 100%;
  height: auto;
  padding: 80px;
- background-color: rgb(230, 244, 255);
+ background-color: #101010;
  text-align: center;
+}
+
+#assistenza .fascia_colorata h3,
+#assistenza .fascia_colorata p {
+    color: #FFF;
 }
 
 #assistenza .sfondo_form {
@@ -56,7 +61,6 @@ a.button {
  width: 100%;
  height: auto;
  padding: 40px;
- background-color: rgb(2, 31, 53);
+ background-color: rgb(2, 53, 22);
  color: #FFF;
 }
-
