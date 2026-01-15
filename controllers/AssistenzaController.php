@@ -9,7 +9,6 @@ class AssistenzaController extends Controller {
         $page = PageConfigurator::instance()->getPage(); 
         $page->setTitle("Assistenza");
         $page->add("content", new PageElement("ui/assistenza"));
-
         return $response;
     }
 }
