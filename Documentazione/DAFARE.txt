@@ -1,4 +1,4 @@
-1- menu ACCEDI REGISTRATI ESCE tutto a destra
+1- FATTO ACCEDI REGISTRATI ESCE tutto a destra
 2- NON SI FA = messaggio errore migliorare (a me piace così) 
 3- FATTO = faq: da fare veramente non per finta 
 4- scarica il manuale d'uso
