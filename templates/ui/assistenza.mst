@@ -1,1 +1,96 @@
-<h1>assistenza</h1>
+<section id="assistenza">
+
+    <h1 class="text-center margine">ASSISTENZA</h1>
+
+    <div class="container margine">
+        <h2>Faq</h2>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Posso salvare le mie ricette?
+                </button>
+                </h3>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>This is the first item’s accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Sono un utente scemo, come si usa l'app?
+                </button>
+                </h3>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>This is the second item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Ci sono anche ricette vegetariane?
+                </button>
+                </h3>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>This is the third item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- container margine -->
+
+    <div class="fascia_giallina">
+        <h3>Scarica il <strong>Manuale d'uso</strong></h3>
+        <p>Per maggiori informazioni sul funzionamento di questa web application, scarica il Manuale d'uso</p>
+        <button class="btn btn-primary text-uppercase"><a class="button" href="http://localhost/SVUOTAFRIGO/Documentazione/diagramma_di_flusso_svuotafrigo.drawio.pdf">Scarica il manuale d'uso</a></button>
+    </div>
+
+    <div class="sfondo_form">
+        <div class="form">
+            <h3 class="my-4">Hai bisogno di altre informazioni?</h3>
+            <p>Se non hai ancora trovato quello che cerchi, contattaci!
+            <br>Un nostro tecnico risponderà entro 24h.</p>
+            <form method="POST" action="contatti">   <!-- richiesta al server, poi index, poi router e poi su post_contatti -->
+                <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input required name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Invio</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="container margine">
+        <h4>Link utili:</h4>
+
+        <h5>Spreco alimentare</h5>
+        <p><a href="https://www.isprambiente.gov.it/it/archivio/notizie-e-novita-normative/notizie-ispra/2025/02/12a-giornata-nazionale-di-prevenzione-dello-spreco-alimentare">https://www.isprambiente.gov.it/it/archivio/notizie-e-novita-normative/notizie-ispra/2025/02/12a-giornata-nazionale-di-prevenzione-dello-spreco-alimentare</a>
+        <br><a href="https://www.epicentro.iss.it/intolleranze/link">https://www.epicentro.iss.it/intolleranze/link</a>
+        <br><a href="https://www.gazzettaufficiale.it/eli/id/2016/08/30/16G00179/sg">https://www.gazzettaufficiale.it/eli/id/2016/08/30/16G00179/sg</a>
+        <br><a href="https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/16886">https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/16886</a>
+        <br><a href="https://www.salute.gov.it/new/it/news-e-media/notizie/sicurezza-alimentare/giornata-nazionale-contro-lo-spreco-alimentare-le/">https://www.salute.gov.it/new/it/news-e-media/notizie/sicurezza-alimentare/giornata-nazionale-contro-lo-spreco-alimentare-le/</a>
+        <br><a href="https://www.senato.it/export/ddl/full/57820">https://www.senato.it/export/ddl/full/57820</a></p>
+
+        <h5>Intolleranze alimentari</h5>
+        <p><a href="https://www.salute.gov.it/new/it/tema/nutrizione/celiachia">https://www.salute.gov.it/new/it/tema/nutrizione/celiachia</a>
+        <br><a href="https://www.salute.gov.it/new/it/tema/nutrizione/intolleranze-al-lattosio">https://www.salute.gov.it/new/it/tema/nutrizione/intolleranze-al-lattosio</a>
+        <br><a href="https://www.salute.gov.it/new/it/tema/nutrizione/allergie-alimentari">https://www.salute.gov.it/new/it/tema/nutrizione/allergie-alimentari</a>
+        <br><a href="https://www.salute.gov.it/new/it/faq/faq-allergie-alimentari/">https://www.salute.gov.it/new/it/faq/faq-allergie-alimentari/</a>
+        <br><a href="https://www.efsa.europa.eu/it/safe2eat/italia">https://www.efsa.europa.eu/it/safe2eat/italia</a>
+        <br><a href="https://www.epicentro.iss.it/intolleranze/link">https://www.epicentro.iss.it/intolleranze/link</a></p>
+    </div>
+
+
+</section>
