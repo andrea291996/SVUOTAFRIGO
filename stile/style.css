@@ -89,3 +89,32 @@ a.button {
  font-weight: 300;
  text-decoration: none;
 }
+
+/************ footer **********/
+
+footer {
+ width: 100%;
+ height: auto;
+ background-image: url(../img/footer.jpg);
+ background-position: 50% 40%;
+ background-size: cover;
+ padding: 40px;
+}
+
+footer .contenitore {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+footer h4,
+footer h5 {
+ text-transform: uppercase;
+ font-weight: 400;
+ color: #FFF;
+}
+
+footer a {
+ color: #e6e088;
+ font-weight: 300;
+ text-decoration: none;
+}
