@@ -12,7 +12,10 @@ class MieRicetteController extends Controller {
         //connessione al database
         $db = Database::getInstance()->getConnection();
         //dammi ricette random
-        $stmt = $db->query("SELECT * FROM ricette ORDER BY RAND() LIMIT 5");
+        $email =$_SESSION['dati']['email'];
+        $sql = "SELECT id_utente FROM utenti WHERE email='$email'";
+        $id_utente = $db->query($sql)->fetchColumn();
+        $stmt = $db->query("SELECT * FROM ricette WHERE id_utente = $id_utente ORDER BY RAND() LIMIT 5");
         //quando faccio fetchAll mette tutti i dati in un array associativo
         $righe = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //var_dump($righe);
