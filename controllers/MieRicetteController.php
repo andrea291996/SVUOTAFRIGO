@@ -18,6 +18,10 @@ class MieRicetteController extends Controller {
         $stmt = $db->query("SELECT * FROM ricette WHERE id_utente = $id_utente");
         //quando faccio fetchAll mette tutti i dati in un array associativo
         $righe = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if(empty($righe)){
+            UIMessage::setError("Non hai inserito nessuna tua ricetta.");
+            return $response->withHeader('Location', BASE_PATH . '/crearicetta')->withStatus(302);
+        }
         //var_dump($righe);
         //exit;
         //echo "<pre>";
