@@ -20,13 +20,13 @@
     <div class="col-md-6 mb-4">
       <div class="form-outline">
         <input type="text" class="form-control" name="nome" />
-        <label class="form-label">First name</label>
+        <label class="form-label">Nome</label>
       </div>
     </div>
     <div class="col-md-6 mb-4">
       <div class="form-outline">
         <input type="text" class="form-control" name="cognome" />
-        <label class="form-label">Last name</label>
+        <label class="form-label">Cognome</label>
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
   <!-- Email -->
   <div data-mdb-input-init class="form-outline mb-4">
     <input type="email" class="form-control" name="email" required />
-    <label class="form-label">Email address</label>
+    <label class="form-label">Indirizzo Email</label>
   </div>
 
   <!-- Password -->
@@ -47,13 +47,13 @@
   <div class="form-check d-flex justify-content-center mb-4">
     <input class="form-check-input me-2" type="checkbox" />
     <label class="form-check-label">
-      Subscribe to our newsletter
+      iscriviti alla newsletter
     </label>
   </div>
 
   <!-- Submit -->
   <button type="submit" class="btn btn-primary btn-block mb-4">
-    Sign up
+   Registrati
   </button>
   
    <div class="text-center mt-3">
