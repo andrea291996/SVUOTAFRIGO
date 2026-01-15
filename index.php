@@ -16,6 +16,7 @@ $app->setBasePath(BASE_PATH);
 
 $app->add(PageMiddleware::class);
 $app->add(MenuMiddleware::class);
+$app->add(FooterMiddleware::class);
 $app->add(UIMessageMiddleware::class);
 $app->add(SessionMiddleware::class);
 
