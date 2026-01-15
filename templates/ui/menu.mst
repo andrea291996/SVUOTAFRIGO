@@ -1,21 +1,38 @@
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
   <div class="container-fluid">
+
     {{#brand}}
     <a class="navbar-brand fw-bold" href="{{href}}">{{title}}</a>
     {{/brand}}
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+      <!-- MENU A SINISTRA -->
+      <ul class="navbar-nav mb-2 mb-lg-0">
         {{#items}}
         <li class="nav-item">
-          <a class="nav-link {{active}}" {{#active}}aria-current="page"{{/active}} href="{{href}}">
+          <a class="nav-link {{active}}" href="{{href}}">
             {{title}}
           </a>
         </li>
         {{/items}}
       </ul>
+
+      <!-- MENU A DESTRA -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {{#items-right}}
+        <li class="nav-item">
+          <a class="nav-link {{active}}" href="{{href}}">
+            {{title}}
+          </a>
+        </li>
+        {{/items-right}}
+      </ul>
+
     </div>
   </div>
 </nav>
