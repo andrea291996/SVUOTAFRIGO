@@ -134,10 +134,11 @@ class RicetteController extends Controller {
         if (count($righe) === 0) {
         UIMessage::setError("Nessuna ricetta corrisponde ai filtri selezionati.");
         return $response->withHeader('Location', BASE_PATH . '/ricette')->withStatus(302);
-    }
-        $risultatiOggetti = $this->mappaRigheInOggetti($db, $righe);
-        $this->assemblaPagina($page, $risultatiOggetti);
-        return $response;
+        }else{
+            $risultatiOggetti = $this->mappaRigheInOggetti($db, $righe);
+            $this->assemblaPagina($page, $risultatiOggetti);
+            return $response;
+        } 
     }
 
     private function mappaRigheInOggetti($db, $righe) {
@@ -149,6 +150,8 @@ class RicetteController extends Controller {
             //se nella colonna vegetariana è vera (c'è 1) allora $etichettaDieta diventa "Vegetariana"
             if($r['vegetariana']) $etichetteDieta[] = "Vegetariana";
             if($r['vegana']) $etichetteDieta[] = "Vegana";
+            if($r['dieta_musulmana']) $etichetteDieta[] = "Halal";
+            if($r['dieta_ebraica']) $etichetteDieta[] = "Kosher";
             if($r['senza_glutine']) $etichetteDieta[] = "Senza Glutine";
             if($r['senza_lattosio']) $etichetteDieta[] = "Senza Lattosio";
             if($r['senza_crostacei']) $etichetteDieta[] = "Senza Crostacei";
