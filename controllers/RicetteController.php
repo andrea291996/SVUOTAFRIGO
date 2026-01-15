@@ -23,7 +23,15 @@ class RicetteController extends Controller {
         //connessione al database
         $db = Database::getInstance()->getConnection();
         //dammi ricette random
-        $stmt = $db->query("SELECT * FROM ricette ORDER BY RAND() LIMIT 5");
+        if(isset($_SESSION['utente-registrato'])){
+            $email =$_SESSION['dati']['email'];
+            $sql = "SELECT id_utente FROM utenti WHERE email='$email'";
+            $id_utente = $db->query($sql)->fetchColumn();
+            $stmt = $db->query("SELECT * FROM ricette WHERE id_utente IS NULL OR id_utente='$id_utente' ORDER BY RAND() LIMIT 5");
+        }else{
+            $stmt = $db->query("SELECT * FROM ricette WHERE id_utente IS NULL ORDER BY RAND() LIMIT 5");
+        }
+        
         //quando faccio fetchAll mette tutti i dati in un array associativo
         $righe = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //var_dump($righe);
@@ -43,28 +51,37 @@ class RicetteController extends Controller {
         return $response->withHeader('Location', BASE_PATH.'/ricette/risultati')->withStatus(302);
     }
 
-    function mostraRisultati(Request $request, Response $response, $args) {
-        //ATTENZIONE: SE INSERISCO LO STESSO INGREDIENTE DUE VOLTE NON FUNZIONA!! DA CORREGGERE ASSOLUTAMENTE   
+    function mostraRisultati(Request $request, Response $response, $args) { 
         if (session_status() === PHP_SESSION_NONE) session_start();
         $idUtente = $_SESSION['utente-id'] ?? null;
+        
+        //var_dump($_SESSION['dati']['email']);
+        //die();
+        //echo $idUtente;
+        //die();
         $page = PageConfigurator::instance()->getPage();
         $page->setTitle("Risultati Ricerca");
         //prendiamo i parametri salvati in $_SESSION dalla funzione filtri_post. i due ?? voglio dire: prova a prendere questo valore, se nullo o non esiste prendi quest'altro.
         $params = $_SESSION['filtri_ricerca'] ?? [];
+        //var_dump($params);
+        //die();
         if (empty($params)) {
             UIMessage::setError("Seleziona almeno un parametro.");
             return $response->withHeader('Location', BASE_PATH . '/ricette')->withStatus(302);
         }
         $db = Database::getInstance()->getConnection();
+        $email =$_SESSION['dati']['email'];
+        $sql = "SELECT id_utente FROM utenti WHERE email='$email'";
+        $id_utente = $db->query($sql)->fetchColumn();
         $parametriQuery = []; 
-        if($idUtente) {
-            $parametriQuery[] = $idUtente;
+        if($id_utente) {
+            $parametriQuery[] = $id_utente;
         } 
         //inizio della query
         $sql = "SELECT r.* FROM ricette r
                 JOIN ricette_ingredienti ri ON r.id = ri.id_ricetta
                 JOIN ingredienti i ON ri.id_ingrediente = i.id
-                WHERE (r.id_utente IS NULL" . ($idUtente ? " OR r.id_utente = ?" : "") . ")";
+                WHERE (r.id_utente IS NULL" . ($id_utente ? " OR r.id_utente = ?" : "") . ")";
         $filtriDiete = ['dieta_musulmana', 'dieta_ebraica', 'vegetariana', 'vegana', 
                            'senza_glutine', 'senza_lattosio', 'senza_crostacei', 'senza_frutta_secca'];
         $filtriTipologia = ['antipasto', 'primo', 'secondo', 'contorno', 'dolce'];
