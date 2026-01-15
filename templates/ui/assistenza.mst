@@ -1,41 +1,90 @@
 <section id="assistenza">
     <h1 class="text-center margine">ASSISTENZA</h1>
     <div class="container margine">
-        <h2>Faq</h2>
+        <h2 class="mb-3">Faq</h2>
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
                 <h3 class="accordion-header">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Posso salvare le mie ricette?
+                    <strong>❓Cos'è l'app Svuotafrigo?</strong>
                 </button>
                 </h3>
                 <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>This is the first item’s accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        L’app SVUOTAFRIGO ti aiuta a cucinare usando gli ingredienti che hai già in casa. Inserendo ciò che hai nel frigorifero o in dispensa, l’app ti suggerisce ricette compatibili, aiutandoti a ridurre lo spreco alimentare e a risparmiare.
                     </div>
                 </div>
             </div>
             <div class="accordion-item">
                 <h3 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Sono un utente scemo, come si usa l'app?
+                    <strong>🍅 Come funziona l’app?</strong>
                 </button>
                 </h3>
                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>This is the second item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        È semplice:
+                        <br>- Inserisci gli ingredienti che hai a disposizione
+                        <br>- L’app analizza il tuo elenco
+                        <br>- Ricevi un elenco di ricette che utilizzano quegli ingredienti (o la maggior parte di essi)
+                        <br><br>In pochi minuti sai cosa cucinare, senza buttare cibo.
                     </div>
                 </div>
             </div>
             <div class="accordion-item">
                 <h3 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Ci sono anche ricette vegetariane?
+                    <strong>🧀 Devo inserire tutti gli ingredienti esatti?</strong>
                 </button>
                 </h3>
                 <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>This is the third item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        No. Puoi inserire anche solo gli ingredienti principali. L’app ti mostrerà:
+                        <br>- ricette che usano tutti gli ingredienti inseriti
+                        <br>- oppure ricette che ne usano la maggior parte, indicando quelli mancanti
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                    <strong>🍝 Le ricette sono adatte a tutti?</strong>
+                </button>
+                </h3>
+                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Sì! Puoi filtrare le ricette in base a:
+                        <br>- portata (antipasto, primo, secondo, contorno, dolce)
+                        <br>- stile di vita (vegetariana, vegana, halal, kosher)
+                        <br>- intolleranze o allergie (glutine, crostacei, lattosio, frutta secca)
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                    <strong>♻️ In che modo l’app aiuta a ridurre lo spreco alimentare?</strong>
+                </button>
+                </h3>
+                <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        SVUOTAFRIGO ti aiuta a:
+                        <br>- usare ingredienti dimenticati in frigo
+                        <br>- pianificare meglio i pasti
+                        <br>- evitare acquisti inutili
+                        <br><br>Piccoli gesti quotidiani che fanno bene all’ambiente 🌍
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    <strong>💡 Posso usare l’app anche se ho pochi ingredienti?</strong>
+                </button>
+                </h3>
+                <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Certo! L’app è pensata proprio per questo: anche con 2 o 3 ingredienti puoi trovare idee creative e antispreco.
                     </div>
                 </div>
             </div>
