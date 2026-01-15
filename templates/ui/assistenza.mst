@@ -44,11 +44,7 @@
         </div>
     </div> <!-- container margine -->
 
-    <div class="fascia_colorata">
-        <h3>Scarica il <strong>Manuale d'uso</strong></h3>
-        <p>Per maggiori informazioni sul funzionamento di questa web application, scarica il Manuale d'uso</p>
-        <button class="btn btn-primary text-uppercase"><a class="button" href="http://localhost/SVUOTAFRIGO/Documentazione/diagramma_di_flusso_svuotafrigo.drawio.pdf">Scarica il manuale d'uso</a></button>
-    </div>
+
 
     <div class="sfondo_form">
         <div class="form">
@@ -71,6 +67,11 @@
         </div>
     </div>
 
+    <div class="fascia_colorata">
+        <h3>Scarica il <strong>Manuale d'uso</strong></h3>
+        <p>Per maggiori informazioni sul funzionamento di questa web application, scarica il Manuale d'uso</p>
+        <button class="btn btn-primary text-uppercase"><a class="button" href="http://localhost/SVUOTAFRIGO/Documentazione/diagramma_di_flusso_svuotafrigo.drawio.pdf">Scarica il manuale d'uso</a></button>
+    </div>
 
     <div class="fascia_link">
         <div class="container">

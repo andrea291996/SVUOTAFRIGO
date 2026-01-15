@@ -27,9 +27,8 @@ a.button {
 #assistenza .fascia_colorata {
  width: 100%;
  height: auto;
- padding: 40px;
+ padding: 80px;
  background-color: rgb(230, 244, 255);
- margin: 40px auto 0;
  text-align: center;
 }
 
