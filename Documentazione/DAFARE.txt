@@ -2,5 +2,5 @@
 2- messaggio errore migliorare (a me piace così)
 3- faq: da fare veramente non per finta
 4- scarica il manuale d'uso
-
+5- aggiornare diagramma di flusso
 6- sitemare bottoni in tutte le pagine e mettere sfondo dietro i filtri di ricette e di crea ricetta

@@ -12,8 +12,6 @@ if(isset($_SESSION['utente-registrato'])){
     $utenteregistrato=true;
 }
 
-
-
 if($utenteregistrato){
     $menu = ['brand'=>['href'=> $base . "/", 'title'=>"Ciao ".$utente]];
     $menu['items'][] = ['href'=> $base . "/", 'title'=>"Ricette"];
