@@ -3,19 +3,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnAggiungi = document.getElementById('btn-aggiungi-ingrediente');
     const inputNuovo = document.getElementById('input-ingrediente-nuovo');
     const listaConfermati = document.getElementById('lista-ingredienti-confermati');
-
     listaConfermati.className = "mt-3 d-flex flex-wrap gap-2 align-items-center";
-
     btnAggiungi.addEventListener('click', function() {
         const valore = inputNuovo.value.trim();
-        
         if (valore === "") {
             return; 
         }
-
         const badge = document.createElement('span');
         badge.className = 'badge rounded-pill bg-dark d-inline-flex align-items-center p-2 px-3 animate__animated animate__fadeIn shadow-sm';
-        
         badge.innerHTML = `
             <span class="fs-6 fw-normal me-2">${valore}</span>
             <input type="hidden" name="ingredienti[]" value="${valore}">
@@ -27,20 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
 
         listaConfermati.appendChild(badge);
-        
-
         inputNuovo.value = '';
         inputNuovo.focus();
     });
-
-
     listaConfermati.addEventListener('click', function(e) {
         if (e.target.closest('.remove-badge')) {
             e.target.closest('.badge').remove();
         }
     });
-
-  
     inputNuovo.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             e.preventDefault();
