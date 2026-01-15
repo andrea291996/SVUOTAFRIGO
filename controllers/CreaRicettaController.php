@@ -18,7 +18,15 @@ function crearicetta_post(Request $request, Response $response, $args){
         $dati_ricetta = $request->getParsedBody();
         $id_utente = $_SESSION['utente_id'];
         $titolo = trim($dati_ricetta['nome']); 
+        if(empty($titolo)){
+            UIMessage::setError("Il titolo non può essere vuoto dai!");
+            return $response->withHeader('Location', BASE_PATH.'/crearicetta')->withStatus(302);
+        }
         $procedimento = trim($dati_ricetta['procedimento']);
+        if(empty(trim($procedimento))){
+            UIMessage::setError("Il procedimento non può essere vuoto.");
+            return $response->withHeader('Location', BASE_PATH.'/crearicetta')->withStatus(302);
+        }
         $tipologia = isset($dati_ricetta['antipasto']) ? 'Antipasto' :
                      (isset($dati_ricetta['primo']) ? 'Primo' :
                      (isset($dati_ricetta['secondo']) ? 'Secondo' :
@@ -42,10 +50,7 @@ function crearicetta_post(Request $request, Response $response, $args){
             UIMessage::setError("Ricetta con lo stesso nome già presente. Per favore modifica il nome.");
             return $response->withHeader('Location', BASE_PATH.'/crearicetta')->withStatus(302);
         }
-        //inserisco la ricetta nella tabella ricette e prendo il suo id
-        //sistema gli ingredienti. ne prendo uno, guardo se c'è: se si prendo il suo id, se non c'è lo inserisco e prendo il suo id.
-        //gli ingredienti vanno inseriti nella tabella ingredienti con nome e id.
-        //poi inserisco nella tabella ricette_ingredienti l'id della ricetta con l'id degli ingredienti
+
         $sql = "INSERT INTO ricette 
                 (titolo, procedimento, tipologia, dieta_musulmana, dieta_ebraica, vegetariana, vegana, senza_glutine, senza_lattosio, senza_crostacei, senza_frutta_secca, id_utente)
                 VALUES 
@@ -67,15 +72,30 @@ function crearicetta_post(Request $request, Response $response, $args){
             ':id_utente' => $id_utente
         ]);
         $id_ricetta = $db->lastInsertId();
-        //DA CAMBIAREEEEEEEEEEEEEEEEEEE
+        $ingredienti = array_map('trim', $ingredienti); // rimuovi spazi
+        $ingredienti = array_filter($ingredienti, fn($i) => !empty($i)); // rimuovi vuoti
+        $ingredienti = array_map(fn($i) => ucfirst(strtolower($i)), $ingredienti); // normalizza
+        $ingredienti = array_unique($ingredienti); // rimuovi duplicati
         foreach($ingredienti as $ing) {
-            $stmt = $db->prepare("INSERT INTO ricette_ingredienti (id_ricetta, id_ingrediente) VALUES (:id_ricetta, :id_ingrediente)");
-            $stmt->execute([
-        ':id_ricetta' => $id_ricetta,
-        ':id_ingrediente' => $ing
-        ]);
-}
+                $ing = trim($ing);
+                if(empty($ing)) continue; 
 
+                $ing = ucfirst(strtolower($ing)); 
+                $stmt = $db->prepare("SELECT id FROM ingredienti WHERE nome = :nome");
+                $stmt->execute([':nome' => $ing]);
+                $id_ingrediente = $stmt->fetchColumn();
+                if(!$id_ingrediente){
+                    $stmt = $db->prepare("INSERT INTO ingredienti (nome) VALUES (:nome)");
+                    $stmt->execute([':nome' => $ing]);
+                    $id_ingrediente = $db->lastInsertId();
+                }
+
+                $stmt = $db->prepare("INSERT INTO ricette_ingredienti (id_ricetta, id_ingrediente) VALUES (:id_ricetta, :id_ingrediente)");
+                $stmt->execute([
+                    ':id_ricetta' => $id_ricetta,
+                    ':id_ingrediente' => $id_ingrediente
+                ]);
+            }
         UIMessage::setSuccess("Inserimento ricetta effettuato con successo.");
         return $response->withHeader('Location', BASE_PATH.'/crearicetta')->withStatus(302);  
     }
