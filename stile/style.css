@@ -24,19 +24,6 @@ a.button {
     border-radius: 0px!important;
 }
 
-#assistenza .fascia_colorata {
- width: 100%;
- height: auto;
- padding: 80px;
- background-color: #101010;
- text-align: center;
-}
-
-#assistenza .fascia_colorata h3,
-#assistenza .fascia_colorata p {
-    color: #FFF;
-}
-
 #assistenza .sfondo_form {
  width: 100%;
  height: auto;
@@ -57,7 +44,20 @@ a.button {
  margin: 40px auto;
 }
 
-#assistenza .fascia_link {
+.fascia_colorata {
+ width: 100%;
+ height: auto;
+ padding: 80px;
+ background-color: #101010;
+ text-align: center;
+}
+
+.fascia_colorata h3,
+.fascia_colorata p {
+    color: #FFF;
+}
+
+.fascia_link {
  width: 100%;
  height: auto;
  padding: 40px;
@@ -65,12 +65,12 @@ a.button {
  color: #FFF;
 }
 
-#assistenza .fascia_link h5 {
+.fascia_link h5 {
  text-transform: uppercase;
  font-weight: 400;
 }
 
-#assistenza .fascia_link a {
+.fascia_link a {
  color: #e6e088;
  font-weight: 300;
  text-decoration: none;
