@@ -18,6 +18,7 @@ function crearicetta_post(Request $request, Response $response, $args){
         $dati_ricetta = $request->getParsedBody();
         $id_utente = $_SESSION['utente_id'];
         $titolo = trim($dati_ricetta['nome']); 
+        $titolo = ucfirst(strtolower($titolo));
         if(empty($titolo)){
             UIMessage::setError("Il titolo non può essere vuoto dai!");
             return $response->withHeader('Location', BASE_PATH.'/crearicetta')->withStatus(302);
