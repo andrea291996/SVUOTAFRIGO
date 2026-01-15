@@ -4,22 +4,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputNuovo = document.getElementById('input-ingrediente-nuovo');
     const listaConfermati = document.getElementById('lista-ingredienti-confermati');
 
-    // Assicurati che il contenitore dei badge abbia le classi Bootstrap per l'allineamento
     listaConfermati.className = "mt-3 d-flex flex-wrap gap-2 align-items-center";
 
     btnAggiungi.addEventListener('click', function() {
         const valore = inputNuovo.value.trim();
         
         if (valore === "") {
-            return; // Evita di aggiungere badge vuoti
+            return; 
         }
 
-        // Creiamo il Badge (Pillola) invece della riga intera
         const badge = document.createElement('span');
-        // Usiamo classi Bootstrap per: Pillola, Colore scuro, Flex, Padding, Ombra e Animazione
         badge.className = 'badge rounded-pill bg-dark d-inline-flex align-items-center p-2 px-3 animate__animated animate__fadeIn shadow-sm';
         
-        // HTML interno: Nome + Input Hidden (per il PHP) + Pulsante X di Bootstrap
         badge.innerHTML = `
             <span class="fs-6 fw-normal me-2">${valore}</span>
             <input type="hidden" name="ingredienti[]" value="${valore}">
@@ -32,20 +28,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         listaConfermati.appendChild(badge);
         
-        // Reset input
+
         inputNuovo.value = '';
         inputNuovo.focus();
     });
 
-    // Delega evento per la rimozione (molto più pulito)
+
     listaConfermati.addEventListener('click', function(e) {
-        // Se clicco sulla X (o dentro la X)
         if (e.target.closest('.remove-badge')) {
             e.target.closest('.badge').remove();
         }
     });
 
-    // Tasto INVIO per aggiungere velocemente
+  
     inputNuovo.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             e.preventDefault();
