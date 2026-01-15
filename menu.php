@@ -2,7 +2,7 @@
 
 $base = "/SVUOTAFRIGO"; 
 $utenteregistrato=false;
-$utente = "Patatini";
+
 if(isset($_SESSION['utente-registrato'])){
     $db = Database::getInstance()->getConnection();
     $email =$_SESSION['dati']['email'];
@@ -12,20 +12,19 @@ if(isset($_SESSION['utente-registrato'])){
     $utenteregistrato=true;
 }
 
-$menu = [
-    'brand'=>['href'=> $base . "/", 'title'=>"Ciao ".$utente],
-    'items'=> [
-        ['href'=> $base . "/", 'title'=>"Ricette"],
-        ['href'=> $base . "/assistenza", 'title'=>"Assistenza"]  
-    ]
-];
+
 
 if($utenteregistrato){
+    $menu = ['brand'=>['href'=> $base . "/", 'title'=>"Ciao ".$utente]];
+    $menu['items'][] = ['href'=> $base . "/", 'title'=>"Ricette"];
+    $menu['items'][] = ['href'=> $base . "/assistenza", 'title'=>"Assistenza"];
     $menu['items'][] = ['href'=> $base . "/crearicetta", 'title'=>"Crea Ricetta"];
     $menu['items'][] = ['href'=> $base . "/lemiericette", 'title'=>"Le Mie Ricette"];
     $menu['items'][] = ['href'=> $base . "/esci", 'title'=>"Esci"];
 }else{
-    
+    $menu = ['brand'=>['href'=> $base . "/", 'title'=>"SVUOTAFRIGO"]];
+    $menu['items'][] = ['href'=> $base . "/", 'title'=>"Ricette"];
+    $menu['items'][] = ['href'=> $base . "/assistenza", 'title'=>"Assistenza"];
     $menu['items'][] = ['href'=> $base . "/accedi", 'title'=>"Accedi"];
     $menu['items'][] = ['href'=> $base . "/registrati", 'title'=>"Registrati"];
 }
