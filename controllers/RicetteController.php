@@ -44,9 +44,9 @@ class RicetteController extends Controller {
     }
 
     function mostraRisultati(Request $request, Response $response, $args) {
-        //ATTENZIONE: SE INSERISCO LO STESSO INGREDIENTE DUE VOLTE NON FUNZIONA!! DA CORREGGERE ASSOLUTAMENTE
-        $idUtente = $_SESSION['utente-id'] ?? null;
+        //ATTENZIONE: SE INSERISCO LO STESSO INGREDIENTE DUE VOLTE NON FUNZIONA!! DA CORREGGERE ASSOLUTAMENTE   
         if (session_status() === PHP_SESSION_NONE) session_start();
+        $idUtente = $_SESSION['utente-id'] ?? null;
         $page = PageConfigurator::instance()->getPage();
         $page->setTitle("Risultati Ricerca");
         //prendiamo i parametri salvati in $_SESSION dalla funzione filtri_post. i due ?? voglio dire: prova a prendere questo valore, se nullo o non esiste prendi quest'altro.
@@ -93,7 +93,7 @@ class RicetteController extends Controller {
         });
         if (!empty($ingredientiUtente)) {
             //purtroppo nel database gli ingredienti sono scritti con la prima lettere maisucola per questo c'è bisogno di questo paio di righe. trasformano pOmOdOrO in Pomodoro
-            $ingredientiUtente = array_map('ucfirst', array_map('strtolower', $ingredientiUtente));
+            $ingredientiUtente = array_unique(array_map('ucfirst', array_map('strtolower', $ingredientiUtente)));
             //in base a quanti $ingredientiUtente ci sono mette lo stesso numero di punti di domanda
             $placeholders = implode(',', array_fill(0, count($ingredientiUtente), '?'));
             $sql .= " AND i.nome IN ($placeholders)";
