@@ -75,7 +75,7 @@
 
     <div class="fascia_link">
         <div class="container">
-            <h4>Link utili:</h4>
+            <h4 class="mb-3">Link utili:</h4>
 
             <h5>Spreco alimentare</h5>
             <p><a href="https://www.isprambiente.gov.it/it/archivio/notizie-e-novita-normative/notizie-ispra/2025/02/12a-giornata-nazionale-di-prevenzione-dello-spreco-alimentare">https://www.isprambiente.gov.it/it/archivio/notizie-e-novita-normative/notizie-ispra/2025/02/12a-giornata-nazionale-di-prevenzione-dello-spreco-alimentare</a>
