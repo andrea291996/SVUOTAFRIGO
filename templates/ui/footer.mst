@@ -1,1 +1,26 @@
-<p>questo è il footer</p>
+ 
+
+ 
+ 
+ 
+        <div class="container">
+            <h4 class="mb-3">Link utili:</h4>
+
+            <h5>Spreco alimentare</h5>
+            <p><a href="https://www.isprambiente.gov.it/it/archivio/notizie-e-novita-normative/notizie-ispra/2025/02/12a-giornata-nazionale-di-prevenzione-dello-spreco-alimentare">https://www.isprambiente.gov.it/it/archivio/notizie-e-novita-normative/notizie-ispra/2025/02/12a-giornata-nazionale-di-prevenzione-dello-spreco-alimentare</a>
+            <br><a href="https://www.epicentro.iss.it/intolleranze/link">https://www.epicentro.iss.it/intolleranze/link</a>
+            <br><a href="https://www.gazzettaufficiale.it/eli/id/2016/08/30/16G00179/sg">https://www.gazzettaufficiale.it/eli/id/2016/08/30/16G00179/sg</a>
+            <br><a href="https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/16886">https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/16886</a>
+            <br><a href="https://www.salute.gov.it/new/it/news-e-media/notizie/sicurezza-alimentare/giornata-nazionale-contro-lo-spreco-alimentare-le/">https://www.salute.gov.it/new/it/news-e-media/notizie/sicurezza-alimentare/giornata-nazionale-contro-lo-spreco-alimentare-le/</a>
+            <br><a href="https://www.senato.it/export/ddl/full/57820">https://www.senato.it/export/ddl/full/57820</a></p>
+
+            <h5>Intolleranze alimentari</h5>
+            <p><a href="https://www.salute.gov.it/new/it/tema/nutrizione/celiachia">https://www.salute.gov.it/new/it/tema/nutrizione/celiachia</a>
+            <br><a href="https://www.salute.gov.it/new/it/tema/nutrizione/intolleranze-al-lattosio">https://www.salute.gov.it/new/it/tema/nutrizione/intolleranze-al-lattosio</a>
+            <br><a href="https://www.salute.gov.it/new/it/tema/nutrizione/allergie-alimentari">https://www.salute.gov.it/new/it/tema/nutrizione/allergie-alimentari</a>
+            <br><a href="https://www.salute.gov.it/new/it/faq/faq-allergie-alimentari/">https://www.salute.gov.it/new/it/faq/faq-allergie-alimentari/</a>
+            <br><a href="https://www.efsa.europa.eu/it/safe2eat/italia">https://www.efsa.europa.eu/it/safe2eat/italia</a>
+            <br><a href="https://www.epicentro.iss.it/intolleranze/link">https://www.epicentro.iss.it/intolleranze/link</a></p>
+        </div>
+    </div>
+
