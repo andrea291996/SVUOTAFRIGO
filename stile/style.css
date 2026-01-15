@@ -64,3 +64,14 @@ a.button {
  background-color: rgb(2, 53, 22);
  color: #FFF;
 }
+
+#assistenza .fascia_link h5 {
+ text-transform: uppercase;
+ font-weight: 400;
+}
+
+#assistenza .fascia_link a {
+ color: #e6e088;
+ font-weight: 300;
+ text-decoration: none;
+}
