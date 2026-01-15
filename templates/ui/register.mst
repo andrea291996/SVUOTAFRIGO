@@ -1,7 +1,85 @@
-<h1>registrati</h1>
+
+
+<h1>Registrati</h1>
+<!-- Section: Design Block -->
+<section class="text-center">
+  <!-- Background image -->
+  <div class="p-5 bg-image" style="
+        background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+        height: 300px;
+        "></div>
+  <!-- Background image -->
+
+  <div class="card mx-4 mx-md-5 shadow-5-strong bg-body-tertiary" style="
+        margin-top: -100px;
+        backdrop-filter: blur(30px);
+        ">
+    <div class="card-body py-5 px-md-5">
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+          <h2 class="fw-bold mb-5">Registrati adesso</h2>
+        
+
+
+
+
 <form action="registrati" method="post">
-Nome:<input name="nome">
-Email:<input name="email" type="email">
-Password:<input name="password" type="password">
-<button type="submit">Registrati</button>
+
+  <!-- First / Last name (opzionali, puoi anche toglierli) -->
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="form-outline">
+        <input type="text" class="form-control" name="nome" />
+        <label class="form-label">First name</label>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="form-outline">
+        <input type="text" class="form-control" name="cognome" />
+        <label class="form-label">Last name</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="email" class="form-control" name="email" required />
+    <label class="form-label">Email address</label>
+  </div>
+
+  <!-- Password -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="password" class="form-control" name="password" required />
+    <label class="form-label">Password</label>
+  </div>
+
+  <!-- Checkbox -->
+  <div class="form-check d-flex justify-content-center mb-4">
+    <input class="form-check-input me-2" type="checkbox" />
+    <label class="form-check-label">
+      Subscribe to our newsletter
+    </label>
+  </div>
+
+  <!-- Submit -->
+  <button type="submit" class="btn btn-primary btn-block mb-4">
+    Sign up
+  </button>
+  
+   <div class="text-center mt-3">
+  <button type="button" class="btn btn-link btn-floating mx-1">
+    <i class="fab fa-google"></i>
+  </button>
+
+  <button type="button" class="btn btn-link btn-floating mx-1">
+    <i class="fab fa-twitter"></i>
+  </button>
+
+  <button type="button" class="btn btn-link btn-floating mx-1">
+    <i class="fab fa-github"></i>
+  </button>
+</div>
+
+
 </form>

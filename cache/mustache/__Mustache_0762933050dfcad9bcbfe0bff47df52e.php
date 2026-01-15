@@ -1,0 +1,147 @@
+<?php
+
+class __Mustache_0762933050dfcad9bcbfe0bff47df52e extends \Mustache\Template
+{
+    protected $strictCallables = true;
+    public function renderInternal(\Mustache\Context $context, $indent = '')
+    {
+        $buffer = '';
+
+        $buffer .= $indent . '
+';
+        $buffer .= $indent . '<!-- Background image -->
+';
+        $buffer .= $indent . '  <div class="p-5 bg-image" style="
+';
+        $buffer .= $indent . '        background-image: url(\'https://mdbootstrap.com/img/new/textures/full/171.jpg\');
+';
+        $buffer .= $indent . '        min height: 100vh;
+';
+        $buffer .= $indent . '        "></div>
+';
+        $buffer .= $indent . '
+';
+        $buffer .= $indent . '
+';
+        $buffer .= $indent . '
+';
+        $buffer .= $indent . '
+';
+        $buffer .= $indent . '<form action="registrati" method="post">
+';
+        $buffer .= $indent . '
+';
+        $buffer .= $indent . '  <!-- First / Last name (opzionali, puoi anche toglierli) -->
+';
+        $buffer .= $indent . '  <div class="row">
+';
+        $buffer .= $indent . '    <div class="col-md-6 mb-4">
+';
+        $buffer .= $indent . '      <div class="form-outline">
+';
+        $buffer .= $indent . '        <input type="text" class="form-control" name="nome" />
+';
+        $buffer .= $indent . '        <label class="form-label">First name</label>
+';
+        $buffer .= $indent . '      </div>
+';
+        $buffer .= $indent . '    </div>
+';
+        $buffer .= $indent . '    <div class="col-md-6 mb-4">
+';
+        $buffer .= $indent . '      <div class="form-outline">
+';
+        $buffer .= $indent . '        <input type="text" class="form-control" name="cognome" />
+';
+        $buffer .= $indent . '        <label class="form-label">Last name</label>
+';
+        $buffer .= $indent . '      </div>
+';
+        $buffer .= $indent . '    </div>
+';
+        $buffer .= $indent . '  </div>
+';
+        $buffer .= $indent . '
+';
+        $buffer .= $indent . '  <!-- Email -->
+';
+        $buffer .= $indent . '  <div data-mdb-input-init class="form-outline mb-4">
+';
+        $buffer .= $indent . '    <input type="email" class="form-control" name="email" required />
+';
+        $buffer .= $indent . '    <label class="form-label">Email address</label>
+';
+        $buffer .= $indent . '  </div>
+';
+        $buffer .= $indent . '
+';
+        $buffer .= $indent . '  <!-- Password -->
+';
+        $buffer .= $indent . '  <div data-mdb-input-init class="form-outline mb-4">
+';
+        $buffer .= $indent . '    <input type="password" class="form-control" name="password" required />
+';
+        $buffer .= $indent . '    <label class="form-label">Password</label>
+';
+        $buffer .= $indent . '  </div>
+';
+        $buffer .= $indent . '
+';
+        $buffer .= $indent . '  <!-- Checkbox -->
+';
+        $buffer .= $indent . '  <div class="form-check d-flex justify-content-center mb-4">
+';
+        $buffer .= $indent . '    <input class="form-check-input me-2" type="checkbox" />
+';
+        $buffer .= $indent . '    <label class="form-check-label">
+';
+        $buffer .= $indent . '      Subscribe to our newsletter
+';
+        $buffer .= $indent . '    </label>
+';
+        $buffer .= $indent . '  </div>
+';
+        $buffer .= $indent . '
+';
+        $buffer .= $indent . '  <!-- Submit -->
+';
+        $buffer .= $indent . '  <button type="submit" class="btn btn-primary btn-block mb-4">
+';
+        $buffer .= $indent . '    Sign up
+';
+        $buffer .= $indent . '  </button>
+';
+        $buffer .= $indent . '  
+';
+        $buffer .= $indent . '    <button 
+';
+        $buffer .= $indent . '    type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+';
+        $buffer .= $indent . '    <i class="fab fa-google"></i>
+';
+        $buffer .= $indent . '    </button>
+';
+        $buffer .= $indent . '
+';
+        $buffer .= $indent . '    <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+';
+        $buffer .= $indent . '    <i class="fab fa-twitter"></i>
+';
+        $buffer .= $indent . '    </button>
+';
+        $buffer .= $indent . '
+';
+        $buffer .= $indent . '    <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+';
+        $buffer .= $indent . '    <i class="fab fa-github"></i>
+';
+        $buffer .= $indent . '    </button>
+';
+        $buffer .= $indent . '
+';
+        $buffer .= $indent . '</form>
+';
+
+        return $buffer;
+    }
+}
