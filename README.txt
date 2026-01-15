@@ -1,10 +1,14 @@
-Per il db
+Per avere il db
 
-cmd
+"/c/Program Files/Ampps/mysql/bin/mysql.exe" -u root -p
 
-cd "C:\Program Files\Ampps\mysql\bin"
+password: mysql
 
-mysql -u root SVUOTAFRIGO < "C:\Program Files\Ampps\www\SVUOTAFRIGO\svuotafrigo_db.sql"
+CREATE DATABASE svuotafrigo;
+EXIT;
 
-mysql -u root SVUOTAFRIGO
+"/c/Program Files/Ampps/mysql/bin/mysql.exe" -u root -p svuotafrigo < svuotafrigo_db.sql
+
+
+
 
