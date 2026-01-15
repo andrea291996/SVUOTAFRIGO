@@ -13,7 +13,7 @@ class CreaRicettaController extends Controller{
         return $response;
     }
 
-function crearicetta_post(Request $request, Response $response, $args){
+    function crearicetta_post(Request $request, Response $response, $args){
         $db = Database::getInstance()->getConnection();
         $dati_ricetta = $request->getParsedBody();
         $id_utente = $_SESSION['utente_id'];
@@ -42,21 +42,16 @@ function crearicetta_post(Request $request, Response $response, $args){
         $senza_lattosio = isset($dati_ricetta['senza_lattosio']) ? 1 : 0;
         $senza_crostacei = isset($dati_ricetta['senza_crostacei']) ? 1 : 0;
         $senza_frutta_secca = isset($dati_ricetta['senza_frutta_secca']) ? 1 : 0;
-        //var_dump($ingredienti);
-        //die();
         $stmt = $db->prepare("SELECT COUNT(*) FROM ricette WHERE titolo = :titolo");
         $stmt->execute([':titolo' => $titolo]);
-
         if($stmt->fetchColumn() > 0){
             UIMessage::setError("Ricetta con lo stesso nome già presente. Per favore modifica il nome.");
             return $response->withHeader('Location', BASE_PATH.'/crearicetta')->withStatus(302);
         }
-
         $sql = "INSERT INTO ricette 
                 (titolo, procedimento, tipologia, dieta_musulmana, dieta_ebraica, vegetariana, vegana, senza_glutine, senza_lattosio, senza_crostacei, senza_frutta_secca, id_utente)
                 VALUES 
                 (:titolo, :procedimento, :tipologia, :dieta_musulmana, :dieta_ebraica, :vegetariana, :vegana, :senza_glutine, :senza_lattosio, :senza_crostacei, :senza_frutta_secca, :id_utente)";
-
         $stmt = $db->prepare($sql);
         $stmt->execute([
             ':titolo' => $titolo,
@@ -80,7 +75,6 @@ function crearicetta_post(Request $request, Response $response, $args){
         foreach($ingredienti as $ing) {
                 $ing = trim($ing);
                 if(empty($ing)) continue; 
-
                 $ing = ucfirst(strtolower($ing)); 
                 $stmt = $db->prepare("SELECT id FROM ingredienti WHERE nome = :nome");
                 $stmt->execute([':nome' => $ing]);

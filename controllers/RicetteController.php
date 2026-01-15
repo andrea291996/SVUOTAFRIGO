@@ -4,16 +4,9 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class RicetteController extends Controller {
-
     private function assemblaPagina($page, $ricette){
-        
         $page->add("content", new PageElement("ricette/filtri"));
         $page->add("js", new PageElement("js/ricettefiltri"));
-
-        //$page->add("content", new PageElement("ricette/filtri"));
-        //if ($utenteLoggato) {
-        //    $page->add("content", new PageElement("ricette/crea")); 
-        //}
         $page->add("content", new PageElement("ricette/elenco", ["lista" => $ricette]));
     }
 
@@ -31,15 +24,8 @@ class RicetteController extends Controller {
         }else{
             $stmt = $db->query("SELECT * FROM ricette WHERE id_utente IS NULL ORDER BY RAND() LIMIT 5");
         }
-        
         //quando faccio fetchAll mette tutti i dati in un array associativo
         $righe = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        //var_dump($righe);
-        //exit;
-        //echo "<pre>";
-        //print_r($righe);
-        //echo "</pre>";
-        //die();
         $ricetteRandom = $this->mappaRigheInOggetti($db, $righe);
         $this->assemblaPagina($page, $ricetteRandom);
         return $response;
@@ -54,17 +40,10 @@ class RicetteController extends Controller {
     function mostraRisultati(Request $request, Response $response, $args) { 
         if (session_status() === PHP_SESSION_NONE) session_start();
         $idUtente = $_SESSION['utente-id'] ?? null;
-        
-        //var_dump($_SESSION['dati']['email']);
-        //die();
-        //echo $idUtente;
-        //die();
         $page = PageConfigurator::instance()->getPage();
         $page->setTitle("Risultati Ricerca");
         //prendiamo i parametri salvati in $_SESSION dalla funzione filtri_post. i due ?? voglio dire: prova a prendere questo valore, se nullo o non esiste prendi quest'altro.
         $params = $_SESSION['filtri_ricerca'] ?? [];
-        //var_dump($params);
-        //die();
         if (empty($params)) {
             UIMessage::setError("Seleziona almeno un parametro.");
             return $response->withHeader('Location', BASE_PATH . '/ricette')->withStatus(302);
@@ -122,9 +101,6 @@ class RicetteController extends Controller {
             //nel cas in cui non abbia messo nessun ingrediente nei filtri
             $sql .= " GROUP BY r.id";
         }
-        //echo $sql;
-        //
-        // die;
         //invia la query al database con i placeholders, ovvero i punti di domanda
         $stmt = $db->prepare($sql);
         //invia veramente i dati
@@ -141,31 +117,7 @@ class RicetteController extends Controller {
         } 
     }
 
-    private function mappaRigheInOggetti($db, $righe) {
-        $oggetti = [];
-        //ciclo: per ogni riga (chiamata $r) di $righe
-        foreach ($righe as $r) {
-            $ingredientiNomi = $this->getIngredientiPerRicetta($db, $r['id']);
-            $etichetteDieta = [];
-            //se nella colonna vegetariana è vera (c'è 1) allora $etichettaDieta diventa "Vegetariana"
-            if($r['vegetariana']) $etichetteDieta[] = "Vegetariana";
-            if($r['vegana']) $etichetteDieta[] = "Vegana";
-            if($r['dieta_musulmana']) $etichetteDieta[] = "Halal";
-            if($r['dieta_ebraica']) $etichetteDieta[] = "Kosher";
-            if($r['senza_glutine']) $etichetteDieta[] = "Senza Glutine";
-            if($r['senza_lattosio']) $etichetteDieta[] = "Senza Lattosio";
-            if($r['senza_crostacei']) $etichetteDieta[] = "Senza Crostacei";
-            if($r['senza_frutta_secca']) $etichetteDieta[] = "Senza Frutta Secca";
-            //se ci sono più etichiette di diete li unisce (con implode) con la virgola, altrimenti scrive standard
-            $testoDieta = !empty($etichetteDieta) ? implode(', ', $etichetteDieta) : "Standard";
-            $oggetti[] = new Ricetta($r['titolo'], $r['procedimento'], $ingredientiNomi, $testoDieta, $r['tipologia']);
-        }
-        return $oggetti;
-    }
+    
 
-    private function getIngredientiPerRicetta($db, $idRicetta) {
-        $stmt = $db->prepare("SELECT i.nome FROM ingredienti i JOIN ricette_ingredienti ri ON i.id = ri.id_ingrediente WHERE ri.id_ricetta = ?");
-        $stmt->execute([$idRicetta]);
-        return $stmt->fetchAll(PDO::FETCH_COLUMN); 
-    }
+    
 }
