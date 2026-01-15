@@ -17,6 +17,20 @@ a.button {
 
 
 
+/********** navbar ************/
+
+.navbar {
+    background-color: rgb(2, 53, 22);
+}
+
+.navbar a {
+    color: #FFF;
+}
+
+.navbar a:hover,
+.navbar a:active {
+    color: #e6e088;
+}
 
 /************ assistenza **********/
 

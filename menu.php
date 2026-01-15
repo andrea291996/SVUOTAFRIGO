@@ -2,7 +2,7 @@
 
 $base = "/SVUOTAFRIGO"; 
 $utenteregistrato=false;
-$utente = "Sconosciuto";
+$utente = "Patatini";
 if(isset($_SESSION['utente-registrato'])){
     $db = Database::getInstance()->getConnection();
     $email =$_SESSION['dati']['email'];
