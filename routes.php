@@ -59,6 +59,10 @@ $routes['POST'] = [
     [
         'pattern' => '/crearicetta',
         'callable' => 'CreaRicettaController:crearicetta_post'
+    ],
+    [
+        'pattern' => '/contatti',
+        'callable' => 'ContattiController:contatti_post'
     ]
 ];
 ?>
