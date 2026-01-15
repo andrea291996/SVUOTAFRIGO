@@ -1,7 +1,3 @@
-
-
-
-
 <section id="login">
   <div class="login-container">
     <h2>Accedi a Ricette in Cucina</h2>
@@ -12,6 +8,6 @@
       <a href="#" class="forgot-password">Hai dimenticato la password?</a>
     </form>
   </div>
-  </section>
+</section>
 
 
