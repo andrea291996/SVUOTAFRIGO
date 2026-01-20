@@ -87,6 +87,11 @@ a.button {
     padding: 20px 40px 80px;
 }
 
+#contenitore-filtri .card {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+}
+
 #contenitore-filtri button {
     background-color: #2ecc71 !important;
     border: none;
