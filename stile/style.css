@@ -227,3 +227,44 @@ footer h4 {
         margin-bottom: 30px;
     }
 }
+
+#errore {
+  position: fixed;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  background-color: #e60023;
+  color: #fff;
+
+  border: none;
+  border-radius: 12px;
+
+  padding: 15px 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+  min-width: 300px;
+  text-align: center;
+}
+
+#errore .btn-close {
+  width: 0.7rem !important;
+  height: 0.7rem !important;
+  padding: 0 !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  top: 50% !important;
+  right: 12px !important;
+  transform: translateY(-50%) !important;
+  cursor: pointer !important;
+  filter: invert(100%);
+  
+}
+
+#errore .btn-close:hover {
+    filter: none;
+  
+  
+}
+
