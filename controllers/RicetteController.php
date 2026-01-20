@@ -49,8 +49,11 @@ class RicetteController extends Controller {
             return $response->withHeader('Location', BASE_PATH . '/ricette')->withStatus(302);
         }
         $db = Database::getInstance()->getConnection();
-        $email =$_SESSION['dati']['email'];
-        $sql = "SELECT id_utente FROM utenti WHERE email='$email'";
+        if($idUtente){
+            $email =$_SESSION['dati']['email'];
+            $sql = "SELECT id_utente FROM utenti WHERE email='$email'";
+        }
+        $sql = "SELECT id_utente FROM utenti";
         $id_utente = $db->query($sql)->fetchColumn();
         $parametriQuery = []; 
         if($id_utente) {
