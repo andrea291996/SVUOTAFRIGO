@@ -158,18 +158,7 @@ footer a {
 /********** ricetta ************/
 
 .card {
-    background-color: #023516;
-    border-radius: 10x;
+    background-color: #b0e29f;
+    border: 1px solid #023516;
     border: none;
-}
-
-.card h4,
-.card p,
-.card ul {
-    color: #FFF;
-}
-
-.card h4 {
-    padding-bottom: 20px;
-    border-bottom: 1px solid #FFF;
 }
