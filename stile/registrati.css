@@ -27,7 +27,7 @@ button.regi {
   padding: 12px;
   background-color: #27ae60 !important;
   border: none !important;
-  border-radius: 15px !important;
+  border-radius: 50px !important;
   color: white !important;
   font-size: 18px !important;
   cursor: pointer !important;
@@ -42,4 +42,5 @@ button.regi:hover {
 #registrati .registrati-container input[type="checkbox"] {
   width: auto;
   margin-right: 8px;
+  border-radius: 50px;
 }
