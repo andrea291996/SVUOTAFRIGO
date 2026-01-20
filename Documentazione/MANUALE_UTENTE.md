@@ -23,7 +23,7 @@
         - Assistenza: Per contattare il team in caso di problemi tecnici e per visionari il link utili.
         - Accedi: Per passare alla modalità Utente Registrato.
         - Registrati: Per passare alla modalità Utente Registrato.
-### Navigazione per Utente Registrato (Profilazione)
+### Navigazione per Utente Registrato
     Dopo aver effettuato il login, il menu cambia per offrire strumenti avanzati. Le voci "Accedi" e "Registrati" scompaiono per lasciare spazio a:
         - Crea Ricette: Un form dedicato dove puoi inserire titolo, ingredienti, tipologia portata, allergie, dieta e preparazione di una tua ricetta. Questa verrà aggiunta al database generale ma sarà visibile solo all'utente che l'ha creata.
         - Le mie Ricette: La tua area personale con tutte le ricette che hai creato.
