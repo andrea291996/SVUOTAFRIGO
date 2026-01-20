@@ -6,6 +6,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 class CreaRicettaController extends Controller{
     
     //get
+    //carica la pagina, template di crearicetta, js di ricettefiltri
     function crearicetta(Request $request, Response $response, $args) {    
         $page = PageConfigurator::instance()->getPage(); 
         $page->setTitle("Crea Ricetta");
@@ -16,9 +17,13 @@ class CreaRicettaController extends Controller{
 
     //post
     function crearicetta_post(Request $request, Response $response, $args){
+        //connessione al db
         $db = Database::getInstance()->getConnection();
+        //prendo i dati scritti dall'utente
         $dati_ricetta = $request->getParsedBody();
+        //riconosco l'utente 
         $id_utente = $_SESSION['utente_id'];
+        //sistemo il titolo: no spazi, prima lettera maiuscola anche se l'utente lo ha scritto male
         $titolo = trim($dati_ricetta['nome']); 
         $titolo = ucfirst(strtolower($titolo));
         //il titolo non deve mai essere vuoto
@@ -26,6 +31,7 @@ class CreaRicettaController extends Controller{
             UIMessage::setError("Il titolo non può essere vuoto dai!");
             return $response->withHeader('Location', BASE_PATH.'/crearicetta')->withStatus(302);
         }
+        //sistemo il procedimento: no spazi
         $procedimento = trim($dati_ricetta['procedimento']);
         //il procedimento non deve mai essere vuoto
         if(empty(trim($procedimento))){
@@ -40,7 +46,7 @@ class CreaRicettaController extends Controller{
                      (isset($dati_ricetta['dolce']) ? 'Dolce' : null))));
         //ingredienti
         $ingredienti = isset($dati_ricetta['ingredienti']) ? $dati_ricetta['ingredienti'] : [];
-        //dieta
+        //diete
         $vegetariana = isset($dati_ricetta['vegetariana']) ? 1 : 0;
         $vegana = isset($dati_ricetta['vegana']) ? 1 : 0;
         $dieta_musulmana = isset($dati_ricetta['dieta_musulmana']) ? 1 : 0;
@@ -50,6 +56,7 @@ class CreaRicettaController extends Controller{
         $senza_lattosio = isset($dati_ricetta['senza_lattosio']) ? 1 : 0;
         $senza_crostacei = isset($dati_ricetta['senza_crostacei']) ? 1 : 0;
         $senza_frutta_secca = isset($dati_ricetta['senza_frutta_secca']) ? 1 : 0;
+        //controllo che non esista già una ricetta con lo stesso nome e gestito l'eventuale errore con un messaggio all'utente
         $stmt = $db->prepare("SELECT COUNT(*) FROM ricette WHERE titolo = :titolo");
         $stmt->execute([':titolo' => $titolo]);
         if($stmt->fetchColumn() > 0){
@@ -78,6 +85,7 @@ class CreaRicettaController extends Controller{
         ]);
         //crea nuovo id per la ricetta
         $id_ricetta = $db->lastInsertId();
+        //sistemo gli ingredienti: no spazi vuoti, prima lettera maiuscola, no duplicati
         $ingredienti = array_map('trim', $ingredienti); // rimuovi spazi
         $ingredienti = array_filter($ingredienti, fn($i) => !empty($i)); // rimuovi vuoti
         $ingredienti = array_map(fn($i) => ucfirst(strtolower($i)), $ingredienti); // normalizza
@@ -90,11 +98,13 @@ class CreaRicettaController extends Controller{
                 $stmt->execute([':nome' => $ing]);
                 $id_ingrediente = $stmt->fetchColumn();
                 if(!$id_ingrediente){
+                    //invio ingrediente
                     $stmt = $db->prepare("INSERT INTO ingredienti (nome) VALUES (:nome)");
                     $stmt->execute([':nome' => $ing]);
+                    //prendo id ingrediente appena inviato
                     $id_ingrediente = $db->lastInsertId();
                 }
-
+                //invio id ingrediente e id ricetta 
                 $stmt = $db->prepare("INSERT INTO ricette_ingredienti (id_ricetta, id_ingrediente) VALUES (:id_ricetta, :id_ingrediente)");
                 $stmt->execute([
                     ':id_ricetta' => $id_ricetta,
