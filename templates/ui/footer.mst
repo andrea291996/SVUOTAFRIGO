@@ -9,7 +9,7 @@
         <div class="particle" style="left: 90%; animation-delay: 5s;"></div>
     </div>
     
-    <div class="cover">
+    
         <div class="contenitore">
             <h4 class="text-center">Link utili</h4>
 
@@ -44,5 +44,5 @@
             </div>
 
         </div>
-    </div>
+    
 </footer>
