@@ -6,6 +6,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 class RicetteController extends Controller {
 
     //get funzione di aiuto 
+    //carica la pagina, template di login, stile di login
     private function assemblaPagina($page, $ricette){
         $page->add("content", new PageElement("ricette/filtri"));
         $page->add("js", new PageElement("js/ricettefiltri"));
@@ -13,18 +14,21 @@ class RicetteController extends Controller {
     }
 
     //get 
+    //questa fuzione mostra le ricette appena si carica la pagina quindi prima di aver messo dei filtri
     function mostraRicette(Request $request, Response $response, $args) {    
         $page = PageConfigurator::instance()->getPage();
         $page->setTitle("Le ricette");
         //connessione al database
         $db = Database::getInstance()->getConnection();
-        //dammi ricette random
+        //se utente registrato mi prendo le sue ricette e quelle del db di default
         if(isset($_SESSION['utente-registrato'])){
             $email =$_SESSION['dati']['email'];
             $sql = "SELECT id_utente FROM utenti WHERE email='$email'";
-            $id_utente = $db->query($sql)->fetchColumn();
-            $stmt = $db->query("SELECT * FROM ricette WHERE id_utente IS NULL OR id_utente='$id_utente' ORDER BY RAND() LIMIT 5");
+            $idUtente = $db->query($sql)->fetchColumn();
+            //prendo solo 5 ricette random (tra quelle di default e quelle dell'utente)
+            $stmt = $db->query("SELECT * FROM ricette WHERE id_utente IS NULL OR id_utente='$idUtente' ORDER BY RAND() LIMIT 5");
         }else{
+            //se l'utente non è registrato prendo 5 ricette random dal db di default
             $stmt = $db->query("SELECT * FROM ricette WHERE id_utente IS NULL ORDER BY RAND() LIMIT 5");
         }
         $righe = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -36,37 +40,46 @@ class RicetteController extends Controller {
     //post funzione di aiuto 
     function filtri_post(Request $request, Response $response, $args) {
         if (session_status() === PHP_SESSION_NONE) session_start();
+        //salvo in $_SESSION i parametri scritti dall'utente tramite il form di filtri
         $_SESSION['filtri_ricerca'] = $request->getParsedBody();
         return $response->withHeader('Location', BASE_PATH.'/ricette/risultati')->withStatus(302);
     }
 
     //post
+    //questa fuzione mostra le ricette filtrate quindi solo dopo aver premuto sul pulsante del form filtri 
     function mostraRisultati(Request $request, Response $response, $args) { 
         if (session_status() === PHP_SESSION_NONE) session_start();
+        //verifichiamo se l'utente è registrato o no
         $idUtente = $_SESSION['utente-id'] ?? null;
         $page = PageConfigurator::instance()->getPage();
         $page->setTitle("Risultati Ricerca");
+        //prendiamo i parametri messi dall'utente (se ci sono, altrimenti array vuoto)
         $params = $_SESSION['filtri_ricerca'] ?? [];
+        //se non ha messo nessun parametro: errore e reindirizzamento
         if (empty($params)) {
             UIMessage::setError("Seleziona almeno un parametro.");
             return $response->withHeader('Location', BASE_PATH . '/ricette')->withStatus(302);
         }
+        //connessione al db
         $db = Database::getInstance()->getConnection();
         if($idUtente){
+            //se l'utente è registrato mi prendo la mail e poi mi prendo l'id
             $email =$_SESSION['dati']['email'];
             $sql = "SELECT id_utente FROM utenti WHERE email='$email'";
         }
-        $sql = "SELECT id_utente FROM utenti";
-        $id_utente = $db->query($sql)->fetchColumn();
+        //inizializzo l'array per i parametri della query
         $parametriQuery = []; 
-        if($id_utente) {
-            $parametriQuery[] = $id_utente;
+        //se l'utente è registrato ci mettiamo dentro l'id
+        if($idUtente) {
+            $parametriQuery[] = $idUtente;
         } 
         //inizio della query
+        //attenzione al where: se $idUtente non c'è la parte fra parentesi diventa una stringa vuota
+        //gestisce sia la query di un utente registrato sia di un utente non registrato
         $sql = "SELECT r.* FROM ricette r
                 JOIN ricette_ingredienti ri ON r.id = ri.id_ricetta
                 JOIN ingredienti i ON ri.id_ingrediente = i.id
-                WHERE (r.id_utente IS NULL" . ($id_utente ? " OR r.id_utente = ?" : "") . ")";
+                WHERE (r.id_utente IS NULL" . ($idUtente ? " OR r.id_utente = ?" : "") . ")";
         $filtriDiete = ['dieta_musulmana', 'dieta_ebraica', 'vegetariana', 'vegana', 
                            'senza_glutine', 'senza_lattosio', 'senza_crostacei', 'senza_frutta_secca'];
         $filtriTipologia = ['antipasto', 'primo', 'secondo', 'contorno', 'dolce'];
@@ -104,6 +117,7 @@ class RicetteController extends Controller {
         $stmt = $db->prepare($sql);
         $stmt->execute($parametriQuery); 
         $righe = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        //se non abbiamo nessun risultato dopo aver interrogato il db mostro un messaggio e reindirizzo a ricette
         if (count($righe) === 0) {
         UIMessage::setError("Nessuna ricetta corrisponde ai filtri selezionati.");
         return $response->withHeader('Location', BASE_PATH . '/ricette')->withStatus(302);

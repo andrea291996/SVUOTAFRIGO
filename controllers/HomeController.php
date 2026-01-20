@@ -6,6 +6,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 class HomeController extends Controller{
     
     //get
+    //carica la pagina, template di home, stile di home
     function home(Request $request, Response $response, $args) {    
         $page = PageConfigurator::instance()->getPage(); 
         $page->setTitle("Home");
