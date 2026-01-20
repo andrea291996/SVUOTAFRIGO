@@ -9,6 +9,7 @@ class AccediController extends Controller{
         $page = PageConfigurator::instance()->getPage(); //guarda index, avevi fatto setPage
         $page->setTitle("Accedi");
         $page->add("content", new PageElement("ui/login"));
+        $page->add("stile", new PageElement("css/login"));
         return $response;
         }
 
