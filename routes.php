@@ -69,6 +69,10 @@ $routes['POST'] = [
     [
         'pattern' => '/contatti',
         'callable' => 'ContattiController:contatti_post'
+    ],
+    [
+        'pattern' => '/cancella',
+        'callable' => 'CancellaRicettaController:cancella'
     ]
 ];
 ?>

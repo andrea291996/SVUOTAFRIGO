@@ -1,6 +1,12 @@
 <div id={{getIdRicetta}} class="col-md-6 mb-4 contenitore-ricetta" >
     <div class="card border-4 h-100 position-relative">
         <div class="card-body">
+        {{#modificabile}}
+        <form method="post" action="cancella">
+        <input type="hidden" name="id_ricetta" value="{{getIdRicetta}}">
+        <button type="sumbit">cancella</button>
+        </form>
+        {{/modificabile}}
             <h4 class="card-title"><b>Nome:</b> {{getTitolo}}</h4>
             <hr>
             <p><b>Tipologia:</b> {{getTipologia}}</p>

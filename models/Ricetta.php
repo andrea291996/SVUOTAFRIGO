@@ -8,6 +8,7 @@ class Ricetta {
     protected $tipologia;
     protected $template;
     protected $idRicetta;
+    public $modificabile;
 
     function __construct($titolo, $procedimento, $ingredienti, $testoDieta, $tipologia, $idRicetta, $template = "ricette/ricetta"){
         $this->titolo = $titolo;
