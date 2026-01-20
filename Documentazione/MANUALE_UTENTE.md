@@ -26,7 +26,7 @@
 ### Navigazione per Utente Registrato (Profilazione)
     Dopo aver effettuato il login, il menu cambia per offrire strumenti avanzati. Le voci "Accedi" e "Registrati" scompaiono per lasciare spazio a:
         - Crea Ricette: Un form dedicato dove puoi inserire titolo, ingredienti, tipologia portata, allergie, dieta e preparazione di una tua ricetta. Questa verrà aggiunta al database generale ma sarà visibile solo all'utente che l'ha creata.
-        - Le mie Ricette: La tua area personale con tutte le ricette che hai creato e la possibilità di filtrarle con gli stessi filtri presenti nella pagina Ricette.
+        - Le mie Ricette: La tua area personale con tutte le ricette che hai creato.
             - Nota: Se non hai ancora inserito nessuna ricetta, cliccando su questa voce verrai reindirizzato automaticamente alla pagina "Crea Ricetta" per iniziare subito a contribuire.
 
 ## I Filtri Intelligenti
