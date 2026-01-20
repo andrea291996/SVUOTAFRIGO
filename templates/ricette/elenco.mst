@@ -1,4 +1,4 @@
-<div class="container mt-5" id="contenitore-ricette">
+<div class="container my-5" id="contenitore-ricette">
     <div class="row">
         {{#lista}}
             {{> ricette/ricetta}}
