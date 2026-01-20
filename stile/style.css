@@ -1,5 +1,5 @@
 /* ============================================
-   1. GENERICI E UTILITY
+     GENERICI E UTILITY
    ============================================ */
 .margine {
     margin: 20px auto 80px;
@@ -18,7 +18,7 @@ a.button {
 }
 
 /* ============================================
-   2. NAVBAR
+      NAVBAR
    ============================================ */
 .navbar {
     background-color: rgb(2, 53, 22);
@@ -37,7 +37,7 @@ a.button {
 }
 
 /* ============================================
-   3. ASSISTENZA
+       ASSISTENZA
    ============================================ */
 
 #assistenza .accordion button {
@@ -77,7 +77,7 @@ a.button {
 }
 
 /* ============================================
-   4. RICETTE E FILTRI
+   RICETTE E FILTRI
    ============================================ */
 #contenitore-filtri {
     width: 100%;
@@ -117,7 +117,7 @@ a.button {
 }
 
 /* ============================================
-   5. FOOTER (STRUTTURA CON PARTICELLE)
+    FOOTER (STRUTTURA CON PARTICELLE)
    ============================================ */
 footer {
     background: linear-gradient(135deg, rgba(45, 93, 44, 0.95) 0%, rgba(6, 53, 2, 0.95) 100%), 
@@ -130,7 +130,9 @@ footer {
     color: #FFFFFF;
 }
 
-/* Effetto Shimmer sulla linea superiore */
+/* ============================================
+       EFFETTO SHIMMER LINEA SUPERIORE
+============================================ */
 footer::before {
     content: '';
     position: absolute;
@@ -164,7 +166,9 @@ footer h4 {
     margin-bottom: 40px;
 }
 
-/* Link Cards */
+/* ============================================
+       LINK CARD
+============================================ */
 .link-card {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
@@ -199,7 +203,7 @@ footer h4 {
 }
 
 /* ============================================
-   6. RESPONSIVE
+    RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
     .link-card {
@@ -210,7 +214,9 @@ footer h4 {
     padding: 5px 20px;
     }
 }
-
+/* ============================================
+   MESSAGGIO DI ERRORE
+   ============================================ */
 #errore {
   position: fixed;
   top: 90px;
@@ -250,7 +256,9 @@ footer h4 {
   
   
 }
-
+/* ============================================
+       MESSAGGIO DI SUCCESSO
+============================================ */
 #successo {
   position: fixed;
   top: 90px;
@@ -291,4 +299,16 @@ footer h4 {
   
 }
 
+
+
+/* ============================================
+       MENù HAMBURGER
+============================================ */
+.navbar-toggler {
+  border-color: white;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
 
