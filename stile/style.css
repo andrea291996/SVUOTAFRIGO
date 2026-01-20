@@ -22,11 +22,13 @@ a.button {
    ============================================ */
 .navbar {
     background-color: rgb(2, 53, 22);
+    border-bottom: 1px solid #104b2b;
 }
 
 .navbar a {
     color: #FFFFFF;
     transition: color 0.3s;
+    text-transform: uppercase;
 }
 
 .navbar a:hover,
@@ -37,6 +39,11 @@ a.button {
 /* ============================================
    3. ASSISTENZA
    ============================================ */
+
+#assistenza .accordion button {
+    border-radius: 0!important;
+}
+
 #assistenza .sfondo_form {
     width: 100%;
     height: auto;
@@ -54,6 +61,19 @@ a.button {
     backdrop-filter: blur(10px);
     border-radius: 40px;
     margin: 40px auto;
+}
+
+#assistenza .fascia_colorata {
+    width: 100%;
+    height: auto;
+    background-color:rgb(19, 19, 19);
+    padding: 80px;
+    text-align: center;
+}
+
+#assistenza .fascia_colorata h3,
+#assistenza .fascia_colorata p {
+    color: #FFF;
 }
 
 /* ============================================
@@ -78,9 +98,9 @@ a.button {
     padding: 10px 20px !important;
 }
 
-.card {
+#ricetta .card {
     background-color: #b0e29f;
-    border: 1px solid #023516;
+    border: none;
     border-radius: 15px;
 }
 
@@ -88,7 +108,7 @@ a.button {
    5. FOOTER (STRUTTURA CON PARTICELLE)
    ============================================ */
 footer {
-    background: linear-gradient(135deg, rgba(44, 93, 58, 0.95) 0%, rgba(2, 53, 22, 0.95) 100%), 
+    background: linear-gradient(135deg, rgba(45, 93, 44, 0.95) 0%, rgba(6, 53, 2, 0.95) 100%), 
                 url(../img/footer.jpg);
     background-size: cover;
     background-position: 50% 40%;
@@ -106,7 +126,7 @@ footer::before {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #104b2b, #2ecc71, #104b2b);
+    background: linear-gradient(90deg, #124b10, #2ecc71, #104b1c);
     animation: shimmer 3s infinite;
     z-index: 2;
 }
