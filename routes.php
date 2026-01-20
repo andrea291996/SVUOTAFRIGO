@@ -40,7 +40,13 @@ $routes['GET'] = [
     [
         'pattern' => '/lemiericette',
         'callable'=>'MieRicetteController:miericette'
+    ],
+      [
+        'pattern' => '/home',
+        'callable'=>'HomeController:home'
     ]
+
+
 ];
 
 $routes['POST'] = [

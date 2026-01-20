@@ -14,13 +14,16 @@ if(isset($_SESSION['utente-registrato'])){
 
 if($utenteregistrato){
     $menu = ['brand'=>['href'=> $base . "/", 'title'=>"Ciao ".$utente]];
+    $menu['items'][] = ['href'=> $base . "/home", 'title'=>"Home"];
     $menu['items'][] = ['href'=> $base . "/ricette", 'title'=>"Ricette"];
     $menu['items'][] = ['href'=> $base . "/assistenza", 'title'=>"Assistenza"];
     $menu['items'][] = ['href'=> $base . "/crearicetta", 'title'=>"Crea Ricetta"];
     $menu['items'][] = ['href'=> $base . "/lemiericette", 'title'=>"Le Mie Ricette"];
     $menu['items-right'][] = ['href'=> $base . "/esci", 'title'=>"Esci"];
+    
 }else{
     $menu = ['brand'=>['href'=> $base . "/", 'title'=>"SVUOTAFRIGO"]];
+    $menu['items'][] = ['href'=> $base . "/home", 'title'=>"Home"];
     $menu['items'][] = ['href'=> $base . "/ricette", 'title'=>"Ricette"];
     $menu['items'][] = ['href'=> $base . "/assistenza", 'title'=>"Assistenza"];
     $menu['items-right'][] = ['href'=> $base . "/accedi", 'title'=>"Accedi"];
