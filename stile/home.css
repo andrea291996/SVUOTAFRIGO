@@ -30,21 +30,25 @@
       gap: 30px;
       max-width: 1200px;
       margin: auto;
+      
     }
 
     .hero-text {
       flex: 1;
+      color: white;
     }
 
     .hero-text h2 {
       font-size: 2rem;
       margin-bottom: 16px;
+      color: white;
     }
 
     .hero-text p {
       font-size: 1.1rem;
       margin-bottom: 20px;
       line-height: 1.6;
+      color: white;
     }
 
     .hero-text button {
@@ -60,7 +64,7 @@
     }
 
      .hero-text button a {
-    text-decoration: none;
+      text-decoration: none;
      color:fff;
      text-transform: uppercase;
      font-weight: 700;
@@ -90,6 +94,7 @@
       text-align: center;
       margin-bottom: 30px;
       font-size: 1.8rem;
+      color: white;
     }
 
     .recipes {
@@ -145,3 +150,24 @@
     padding: 7px 20px!important;
 }
 
+    html, body {
+  height: 100%;
+}
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;        /* riempie tutta la pagina */
+  background-position: center;   /* centra l’immagine */
+  background-repeat: no-repeat;  /* niente ripetizioni */
+  background-attachment: fixed;  /* effetto elegante (opzionale) */
+
+  color: #333;
+}
+
+
+.cover{
+
+    width: 100%;
+    height: auto;
+    background-color: rgba(0,0,0,0.7);
+}
