@@ -21,7 +21,7 @@
 
             <div class="assoluto">
                 <p><b>Procedimento:</b></p>
-                <div class="p-3 border border-success rounded">
+                <div class="p-3 bg-success p-2 text-dark bg-opacity-25 bg-success rounded">
                     {{getProcedimento}}
                 </div>
             </div>
