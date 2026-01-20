@@ -5,18 +5,20 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class RegistratiController extends Controller{
     
+    //get
     function registrati(Request $request, Response $response, $args) {    
-
-        $page = PageConfigurator::instance()->getPage(); //guarda index, avevi fatto setPage
+        $page = PageConfigurator::instance()->getPage();
         $page->setTitle("Registrati");
         $page->add("content", new PageElement("ui/register"));
         $page->add("stile", new PageElement("css/registrati"));
         return $response;
     }
 
+    //post
     function registrati_post(Request $request, Response $response, $args){
         $db = Database::getInstance()->getConnection();
         $dati_utente = $request->getParsedBody();
+        //query sql
         $nome=$dati_utente['nome'];
         $email=$dati_utente['email'];
         $password=$dati_utente['password'];

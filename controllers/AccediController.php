@@ -5,14 +5,16 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class AccediController extends Controller{
     
+    //get
     function accedi(Request $request, Response $response, $args) {    
-        $page = PageConfigurator::instance()->getPage(); //guarda index, avevi fatto setPage
+        $page = PageConfigurator::instance()->getPage(); 
         $page->setTitle("Accedi");
         $page->add("content", new PageElement("ui/login"));
         $page->add("stile", new PageElement("css/login"));
         return $response;
         }
 
+    //post
     function accedi_post(Request $request, Response $response, $args){
         $db = Database::getInstance()->getConnection();;
         $_SESSION['dati'] = $request->getParsedBody();

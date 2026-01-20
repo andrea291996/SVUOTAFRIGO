@@ -4,28 +4,22 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class ContattiController extends Controller {
-    //@method GET
-    //@url /contatti
-    //@type Page
+    
+    //get
     public function index(Request $request, Response $response, $args){
         $page = PageConfigurator::instance()->getPage(); 
         $page->setTitle("Contatti");
         $page->add("content", new ContattiView());
-        
-        //si recuperano i dati
-        //si crea la pagina view
-        //si registra la view alla pagina contenitore
         return $response;
     }
 
-    //@method POST
-    //@url /contatti
-    //@type Service
+    //post
     public function contatti_post(Request $request, Response $response, $args){
         $data = $request->getParsedBody();
         $email = $data["email"];
         $message = $data["message"];
-    
+
+        //validazione email
         if(empty($email) || empty($message)){
             UIMessage::setError("Email e/o il messaggio sono vuori");
             return $response->withHeader("Location", "./assistenza")->withStatus(302);
@@ -36,6 +30,7 @@ class ContattiController extends Controller {
             return $response->withHeader("Location", "./assistenza")->withStatus(302);
         }
 
+        //crea il file di contatti
         $file = getcwd()."/messages/contatti.json"; 
         $data = [];
 
@@ -44,8 +39,9 @@ class ContattiController extends Controller {
             $data = json_decode($messages, true); 
         }
 
+        //scrive sul file
         $curDate = date("Y-m-d H:i:s");
-        $newdata = ['email' => $email, 'message' => $message, 'date' => $curDate, 'active' => 'yes'];
+        $newdata = ['email' => $email, 'message' => $message, 'date' => $curDate];
         array_push($data, $newdata); 
         $contact = json_encode($data); 
         file_put_contents($file, $contact); 

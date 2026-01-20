@@ -11,16 +11,16 @@
 ## APPLICABILITA'
     L’applicazione è pensata per chiunque voglia ridurre lo spreco alimentare domestico e utilizzare al meglio gli ingredienti già presenti in dispensa, con ricette gustose e adatte alle proprie necessità.
     In particolare, l’app è sensibile esigenze alimentari diverse, grazie a filtri inclusivi che permettono di selezionare ricette compatibili con:
-    -Diete religiose o etiche: 
-        -dieta musulmana
-        -dieta ebraica
-        -vegetariana
-        -vegana
-    -Intolleranze o allergie: 
-        -senza glutine
-        -senza lattosio
-        -senza crostacei
-        -senza frutta secca
+    - Diete religiose o etiche: 
+        - dieta musulmana
+        - dieta ebraica
+        - vegetariana
+        - vegana
+    - Intolleranze o allergie: 
+        - senza glutine
+        - senza lattosio
+        - senza crostacei
+        - senza frutta secca
     In questo modo l’app offre un’esperienza personalizzata e sicura, rendendo le ricette accessibili a chiunque indipendentemente dalle proprie scelte alimentari o restrizioni.
 
 ## RESPONSABILITA'

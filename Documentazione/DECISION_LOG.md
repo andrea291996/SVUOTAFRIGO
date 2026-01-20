@@ -53,6 +53,7 @@
 ## TESTING
     Da effettuare su:
     -logica query di interrogazione del database
+    -form contatti per messaggi da utenti
     -form login
     -form registrazione
 
