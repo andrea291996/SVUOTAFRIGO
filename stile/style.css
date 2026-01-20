@@ -103,7 +103,7 @@ a.button {
     padding: 10px 20px !important;
 }
 
-#ricetta .card {
+.contenitore-ricetta .card {
     background-color: #b0e29f;
     border: none;
     border-radius: 15px;
