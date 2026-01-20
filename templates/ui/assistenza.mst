@@ -107,7 +107,7 @@
                 <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Invio</button>
+                    <button type="submit" class="btn">Invio</button>
                 </div>
             </form>
         </div>
@@ -115,14 +115,14 @@
     <div class="fascia_colorata">
         <h3>Scarica il <strong>Manuale d'uso</strong></h3>
         <p>Per maggiori informazioni sul funzionamento di questa web application, scarica il Manuale d'uso</p>
-        <button class="btn btn-primary text-uppercase"><a class="button" href="http://localhost/SVUOTAFRIGO/Documentazione/MANUALE_UTENTE.pdf">Scarica il manuale d'uso</a></button>
+        <button class="btn text-uppercase btn"><a class="button" href="http://localhost/SVUOTAFRIGO/Documentazione/MANUALE_UTENTE.pdf">Scarica il manuale d'uso</a></button>
                 <!-- Pulsante VIDEO -->
-            <button class="btn btn-primary text-uppercase" onclick="mostraVideo()" id="btnVideo">Riproduci Video</button>
+            <button class="btn text-uppercase btn" onclick="mostraVideo()" id="btnVideo">Riproduci Video</button>
 
             <!-- Contenitore video inizialmente nascosto -->
             <div id="videoContainer" style="display:none; margin-top:20px;">
                 <video id="mioVideo" width="400" controls>
-                    <source src="./video/video.mp4" type="video/mp4">
+                    <source src="./video/.mp4" type="video/mp4">
                 </video>
             </div>
 
