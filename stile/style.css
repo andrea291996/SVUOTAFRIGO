@@ -118,3 +118,14 @@ footer a {
  font-weight: 300;
  text-decoration: none;
 }
+
+/********** ricette ************/
+
+#contenitore-filtri {
+ width: 100%;
+ height: auto;
+ background-image: url(../img/footer.jpg);
+ background-position: 50% 40%;
+ background-size: cover;
+ padding: 20px 40px 80px;
+}
