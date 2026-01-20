@@ -1,5 +1,5 @@
 <section id="assistenza">
-    <h1 class="text-center margine">ASSISTENZA</h1>
+    <h1 class="text-center mt-5">ASSISTENZA</h1>
     <div class="container margine">
         <h2 class="mb-3">Faq</h2>
         <div class="accordion" id="accordionExample">
