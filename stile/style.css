@@ -6,32 +6,21 @@
 }
 
 button {
-    background-color: #2ecc71!important;
-    border: none;
-    color: FFF!important;
-    text-transform: uppercase!important;
-    padding: 14px 22px;
-    font-size: 1rem;
-    border-radius: 8px;
-    cursor: pointer;
     border-radius: 50px!important;
     padding: 7px 20px!important;
 }
 
 a.button {
     text-decoration: none;
-    color:FFF!important;
-    text-transform: uppercase!important;
+    color:FFF;
 }
 
-button:hover {
-    background-color: rgb(2, 53, 22)!important;
-}
+
 
 /********** navbar ************/
 
 .navbar {
-    background-color: #023516;
+    background-color: rgb(2, 53, 22);
 }
 
 .navbar a {
@@ -139,13 +128,4 @@ footer a {
  background-position: 50% 40%;
  background-size: cover;
  padding: 20px 40px 80px;
-}
-
-
-/********** card ricetta ************/
-
-.card {
-    background-color: #ade69f;
-    border: none;
-    border-radius: 10px;
 }
