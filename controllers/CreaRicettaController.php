@@ -112,6 +112,6 @@ class CreaRicettaController extends Controller{
                 ]);
             }
         UIMessage::setSuccess("Inserimento ricetta effettuato con successo.");
-        return $response->withHeader('Location', BASE_PATH.'/crearicetta')->withStatus(302);  
+        return $response->withHeader('Location', BASE_PATH.'/lemiericette')->withStatus(302);  
     }
 }
