@@ -1,6 +1,6 @@
 <section id="login">
   <div class="login-container">
-    <h2>Accedi a Ricette in Cucina</h2>
+    <h2>Accedi</h2>
     <form action="accedi" method="post">
       <input type="email" name="email" placeholder="Email" required>
       <input type="password" name="password" placeholder="Password" required>
