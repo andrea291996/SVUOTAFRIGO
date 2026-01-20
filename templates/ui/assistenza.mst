@@ -18,14 +18,15 @@
             <div class="accordion-item">
                 <h3 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <strong>🍅 Come funziona l’app?</strong>
+                    <strong>🍅 Come funziona l'app?</strong>
                 </button>
                 </h3>
                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         È semplice:
                         <br>- Inserisci gli ingredienti che hai a disposizione
-                        <br>- L’app analizza il tuo elenco
+                        <br>- Seleziona i filtri su: portata, stile di vita ed eventuali intolleranze
+                        <br>- L'app analizza il tuo elenco
                         <br>- Ricevi un elenco di ricette che utilizzano quegli ingredienti (o la maggior parte di essi)
                         <br><br>In pochi minuti sai cosa cucinare, senza buttare cibo.
                     </div>
@@ -39,9 +40,10 @@
                 </h3>
                 <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        No. Puoi inserire anche solo gli ingredienti principali. L’app ti mostrerà:
+                        No. Puoi inserire anche solo gli ingredienti principali.
+                        <br><br>L'app ti mostrerà:
                         <br>- ricette che usano tutti gli ingredienti inseriti
-                        <br>- oppure ricette che ne usano la maggior parte, indicando quelli mancanti
+                        <br>- oppure ricette che ne usano la maggior parte
                     </div>
                 </div>
             </div>
