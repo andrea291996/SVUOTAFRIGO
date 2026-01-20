@@ -5,17 +5,16 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class MieRicetteController extends Controller {
 
+    //get
     function miericette(Request $request, Response $response, $args) {    
         $page = PageConfigurator::instance()->getPage();
         $page->setTitle("Le Mie Ricette");
-        //connessione al database
         $db = Database::getInstance()->getConnection();
-        //dammi ricette random
         $email =$_SESSION['dati']['email'];
+        //sql
         $sql = "SELECT id_utente FROM utenti WHERE email='$email'";
         $id_utente = $db->query($sql)->fetchColumn();
         $stmt = $db->query("SELECT * FROM ricette WHERE id_utente = $id_utente");
-        //quando faccio fetchAll mette tutti i dati in un array associativo
         $righe = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if(empty($righe)){
             UIMessage::setError("Non hai inserito nessuna tua ricetta.");

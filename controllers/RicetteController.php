@@ -4,12 +4,15 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class RicetteController extends Controller {
+
+    //get funzione di aiuto 
     private function assemblaPagina($page, $ricette){
         $page->add("content", new PageElement("ricette/filtri"));
         $page->add("js", new PageElement("js/ricettefiltri"));
         $page->add("content", new PageElement("ricette/elenco", ["lista" => $ricette]));
     }
 
+    //get 
     function mostraRicette(Request $request, Response $response, $args) {    
         $page = PageConfigurator::instance()->getPage();
         $page->setTitle("Le ricette");
@@ -24,25 +27,25 @@ class RicetteController extends Controller {
         }else{
             $stmt = $db->query("SELECT * FROM ricette WHERE id_utente IS NULL ORDER BY RAND() LIMIT 5");
         }
-        //quando faccio fetchAll mette tutti i dati in un array associativo
         $righe = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $ricetteRandom = $this->mappaRigheInOggetti($db, $righe);
         $this->assemblaPagina($page, $ricetteRandom);
         return $response;
     }
-    //questa funzione viene chiamata quando clicchiamo sul pulsante filtra, salva i parametri in $_SESSION e reindirizza a ricette/risultati dopo verrà chiamata la funzione mostraRisultati. Vedi Routes.php
+
+    //post funzione di aiuto 
     function filtri_post(Request $request, Response $response, $args) {
         if (session_status() === PHP_SESSION_NONE) session_start();
         $_SESSION['filtri_ricerca'] = $request->getParsedBody();
         return $response->withHeader('Location', BASE_PATH.'/ricette/risultati')->withStatus(302);
     }
 
+    //post
     function mostraRisultati(Request $request, Response $response, $args) { 
         if (session_status() === PHP_SESSION_NONE) session_start();
         $idUtente = $_SESSION['utente-id'] ?? null;
         $page = PageConfigurator::instance()->getPage();
         $page->setTitle("Risultati Ricerca");
-        //prendiamo i parametri salvati in $_SESSION dalla funzione filtri_post. i due ?? voglio dire: prova a prendere questo valore, se nullo o non esiste prendi quest'altro.
         $params = $_SESSION['filtri_ricerca'] ?? [];
         if (empty($params)) {
             UIMessage::setError("Seleziona almeno un parametro.");
@@ -67,10 +70,8 @@ class RicetteController extends Controller {
         $filtriDiete = ['dieta_musulmana', 'dieta_ebraica', 'vegetariana', 'vegana', 
                            'senza_glutine', 'senza_lattosio', 'senza_crostacei', 'senza_frutta_secca'];
         $filtriTipologia = ['antipasto', 'primo', 'secondo', 'contorno', 'dolce'];
-        //per ogni casella dei filtri controlliamo se è spuntata.
         foreach ($filtriDiete as $colonna) {
             if (isset($params[$colonna])) { 
-                //se la casella è spuntata si aggiunge la condizione alla query
                 $sql .= " AND r.$colonna = ?"; 
                 $parametriQuery[] = 1;         
             }
@@ -78,7 +79,7 @@ class RicetteController extends Controller {
         $tipologieSelezionate = [];
         foreach ($filtriTipologia as $tipo) {
             if (isset($params[$tipo])) {
-            $tipologieSelezionate[] = ucfirst($tipo); // Trasforma 'primo' in 'Primo'
+            $tipologieSelezionate[] = ucfirst($tipo); 
             }
         }
         if (!empty($tipologieSelezionate)) {
@@ -86,29 +87,22 @@ class RicetteController extends Controller {
         $sql .= " AND r.tipologia IN ($placeholdersTipologia)";
         $parametriQuery = array_merge($parametriQuery, $tipologieSelezionate);
         }
-        //togliamo spazi vuoti. i due ?? voglio dire: prova a prendere questo valore, se nullo o non esiste prendi quest'altro.
         $ingredientiUtente = array_filter($params['ingredienti'] ?? [], function($val) {
             return !empty(trim($val));
         });
         if (!empty($ingredientiUtente)) {
             //purtroppo nel database gli ingredienti sono scritti con la prima lettere maisucola per questo c'è bisogno di questo paio di righe. trasformano pOmOdOrO in Pomodoro
             $ingredientiUtente = array_unique(array_map('ucfirst', array_map('strtolower', $ingredientiUtente)));
-            //in base a quanti $ingredientiUtente ci sono mette lo stesso numero di punti di domanda
             $placeholders = implode(',', array_fill(0, count($ingredientiUtente), '?'));
             $sql .= " AND i.nome IN ($placeholders)";
             $parametriQuery = array_merge($parametriQuery, array_values($ingredientiUtente));
             $sql .= " GROUP BY r.id HAVING COUNT(DISTINCT i.nome) = ?";
-            //qui aggiungiamo a parametriQuery il numero di ingredienti inseriti dall'utente al fine di una corretta query
             $parametriQuery[] = count($ingredientiUtente); 
         } else {
-            //nel cas in cui non abbia messo nessun ingrediente nei filtri
             $sql .= " GROUP BY r.id";
         }
-        //invia la query al database con i placeholders, ovvero i punti di domanda
         $stmt = $db->prepare($sql);
-        //invia veramente i dati
         $stmt->execute($parametriQuery); 
-        //prendo i risultati
         $righe = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (count($righe) === 0) {
         UIMessage::setError("Nessuna ricetta corrisponde ai filtri selezionati.");
@@ -119,8 +113,4 @@ class RicetteController extends Controller {
             return $response;
         } 
     }
-
-    
-
-    
 }
