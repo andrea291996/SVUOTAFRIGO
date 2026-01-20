@@ -122,7 +122,7 @@
             <!-- Contenitore video inizialmente nascosto -->
             <div id="videoContainer" style="display:none; margin-top:20px;">
                 <video id="mioVideo" width="400" controls>
-                    <source src="video.mp4" type="video/mp4">
+                    <source src="./video/video.mp4" type="video/mp4">
                 </video>
             </div>
 
