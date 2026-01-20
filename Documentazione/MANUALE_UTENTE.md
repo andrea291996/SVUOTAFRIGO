@@ -1,5 +1,10 @@
 # MANUALE UTENTE - SVUOTAFRIGO v.2
 
+![Logo SVUOTAFRIGO](../img/logo_svuotafrigo.png)
+
+---
+
+
 ## INTRODUZIONE E SCOPO
 
 Il progetto **SVUOTAFRIGO** nasce come risposta concreta al problema dello spreco alimentare domestico, un fenomeno che ogni anno vede tonnellate di cibo finire nella spazzatura nelle sole abitazioni private. Basandosi sulle evidenze scientifiche della tesi di dottorato di Silvia Gaiani (2021), l'applicazione si pone l'obiettivo di "educare" l'utente a guardare la propria dispensa con occhi nuovi.
@@ -97,12 +102,16 @@ Form di login per utenti già registrati:
 - Campo password
 - Pulsante per effettuare l'accesso
 
+![Schermata Login](Screenshot/login.png)
+
 #### **Registrati**
 Form di registrazione per nuovi utenti:
 - Campo nome
 - Campo email
 - Campo password
 - Pulsante per creare l'account
+
+![Schermata Registrazione](Screenshot/registrazione.png)
 
 ---
 
@@ -140,6 +149,8 @@ Pulsante per effettuare il logout e tornare alla modalità ospite.
 ### 3. Pagina RICETTE - Sistema di Ricerca
 
 La pagina Ricette è il cuore dell'applicazione. Ecco come funziona nel dettaglio:
+
+![Schermata Ricette](Screenshot/ricette.png)
 
 #### **Inserimento Ingredienti**
 
@@ -249,6 +260,8 @@ Questa sezione mostra tutte le ricette che hai creato personalmente.
 **Redirect automatico**: 
 Se non hai ancora creato nessuna ricetta, verrai automaticamente reindirizzato alla pagina "Crea Ricetta" per iniziare subito a inserire la tua prima ricetta.
 
+**Cancellazione ricetta creata da parte dell'utente**:
+Quando un utente crea la ricetta ha sempre la possibilità di eliminarla.
 ---
 
 ### 6. Pagina ASSISTENZA
