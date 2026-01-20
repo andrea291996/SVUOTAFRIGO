@@ -256,12 +256,11 @@ Questa sezione mostra tutte le ricette che hai creato personalmente.
 - Visualizzazione delle tue ricette in formato griglia
 - Ogni ricetta mostra titolo, ingredienti e procedimento
 - Possibilità di consultare le tue ricette salvate
+- Cancellazione ricetta creata da parte dell'utente
 
 **Redirect automatico**: 
 Se non hai ancora creato nessuna ricetta, verrai automaticamente reindirizzato alla pagina "Crea Ricetta" per iniziare subito a inserire la tua prima ricetta.
 
-**Cancellazione ricetta creata da parte dell'utente**:
-Quando un utente crea la ricetta ha sempre la possibilità di eliminarla.
 ---
 
 ### 6. Pagina ASSISTENZA
