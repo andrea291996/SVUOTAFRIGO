@@ -26,13 +26,15 @@
 	#################################################
 
 2.0	1)FORM in cui si inseriscono ingredienti disponibili [PHP]
- 	2)pagina in cui ci sono le RICETTE FILTRATE per gli ingredienti inseriti (algoritmo versione 3) [PHP]
+ 	2)pagina in cui ci sono le RICETTE FILTRATE per i filtri inseriti (algoritmo versione 3) [PHP]
 	3)pagina FORM per inserire una ricetta da parte dell'utente [PHP]
 	3)pagine FORM in cui ci si registra e si fa login [PHP] [DATABASE INNODB versione 2]
 
-	* NEW: 1)aggiunta parametri celiachia, allergia, diete
+	* NEW: 1)aggiunta parametri allergia, dieta, tipologia portata
 	* NEW: pagina con le ricette inserite dall'utente
 	* NEW: modifica database per profilazione utenti [DATABASE INNODB versione 2]
 	* NEW: modifica database per ricette [DATABASE INNODB versione 2]
+	* NEW: pagina assistenza
+	* NEW: pagina home
 
 	
