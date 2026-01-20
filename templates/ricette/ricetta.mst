@@ -4,7 +4,7 @@
         {{#modificabile}}
         <form method="post" action="cancella">
         <input type="hidden" name="id_ricetta" value="{{getIdRicetta}}">
-        <button type="sumbit">cancella</button>
+        <button class="btn-cancella" type="sumbit">cancella</button>
         </form>
         {{/modificabile}}
             <h4 class="card-title"><b>Nome:</b> {{getTitolo}}</h4>

@@ -5,7 +5,7 @@
     margin: 20px auto 80px;
 }
 
-button {
+button .btn-cancella {
     border-radius: 50px !important;
     padding: 7px 20px !important;
     transition: all 0.3s ease;
@@ -25,6 +25,7 @@ a.button {
     text-decoration: none;
     color: #FFFFFF;
     display: inline-block;
+    position: relative;
 }
 
 /* ============================================
@@ -115,6 +116,7 @@ a.button {
     border-radius: 50px !important;
     padding: 10px 20px !important;
     margin: 0 10px;
+    position: relative;
 }
 
 .contenitore-ricetta .card {
