@@ -5,6 +5,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class CreaRicettaController extends Controller{
     
+    //get
     function crearicetta(Request $request, Response $response, $args) {    
         $page = PageConfigurator::instance()->getPage(); 
         $page->setTitle("Crea Ricetta");
@@ -13,31 +14,38 @@ class CreaRicettaController extends Controller{
         return $response;
     }
 
+    //post
     function crearicetta_post(Request $request, Response $response, $args){
         $db = Database::getInstance()->getConnection();
         $dati_ricetta = $request->getParsedBody();
         $id_utente = $_SESSION['utente_id'];
         $titolo = trim($dati_ricetta['nome']); 
         $titolo = ucfirst(strtolower($titolo));
+        //il titolo non deve mai essere vuoto
         if(empty($titolo)){
             UIMessage::setError("Il titolo non può essere vuoto dai!");
             return $response->withHeader('Location', BASE_PATH.'/crearicetta')->withStatus(302);
         }
         $procedimento = trim($dati_ricetta['procedimento']);
+        //il procedimento non deve mai essere vuoto
         if(empty(trim($procedimento))){
             UIMessage::setError("Il procedimento non può essere vuoto.");
             return $response->withHeader('Location', BASE_PATH.'/crearicetta')->withStatus(302);
         }
+        //tipologie
         $tipologia = isset($dati_ricetta['antipasto']) ? 'Antipasto' :
                      (isset($dati_ricetta['primo']) ? 'Primo' :
                      (isset($dati_ricetta['secondo']) ? 'Secondo' :
                      (isset($dati_ricetta['contorno']) ? 'Contorno' :
                      (isset($dati_ricetta['dolce']) ? 'Dolce' : null))));
+        //ingredienti
         $ingredienti = isset($dati_ricetta['ingredienti']) ? $dati_ricetta['ingredienti'] : [];
+        //dieta
         $vegetariana = isset($dati_ricetta['vegetariana']) ? 1 : 0;
         $vegana = isset($dati_ricetta['vegana']) ? 1 : 0;
         $dieta_musulmana = isset($dati_ricetta['dieta_musulmana']) ? 1 : 0;
         $dieta_ebraica = isset($dati_ricetta['dieta_ebraica']) ? 1 : 0;
+        //allergie
         $senza_glutine = isset($dati_ricetta['senza_glutine']) ? 1 : 0;
         $senza_lattosio = isset($dati_ricetta['senza_lattosio']) ? 1 : 0;
         $senza_crostacei = isset($dati_ricetta['senza_crostacei']) ? 1 : 0;
@@ -48,6 +56,7 @@ class CreaRicettaController extends Controller{
             UIMessage::setError("Ricetta con lo stesso nome già presente. Per favore modifica il nome.");
             return $response->withHeader('Location', BASE_PATH.'/crearicetta')->withStatus(302);
         }
+        //creazione query sql
         $sql = "INSERT INTO ricette 
                 (titolo, procedimento, tipologia, dieta_musulmana, dieta_ebraica, vegetariana, vegana, senza_glutine, senza_lattosio, senza_crostacei, senza_frutta_secca, id_utente)
                 VALUES 
@@ -67,6 +76,7 @@ class CreaRicettaController extends Controller{
             ':senza_frutta_secca' => $senza_frutta_secca,
             ':id_utente' => $id_utente
         ]);
+        //crea nuovo id per la ricetta
         $id_ricetta = $db->lastInsertId();
         $ingredienti = array_map('trim', $ingredienti); // rimuovi spazi
         $ingredienti = array_filter($ingredienti, fn($i) => !empty($i)); // rimuovi vuoti
