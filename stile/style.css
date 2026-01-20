@@ -130,7 +130,6 @@ footer a {
  padding: 20px 40px 80px;
 }
 
-<<<<<<< HEAD
 /* ============================================
    FILE CSS: footer-styles.css
    ============================================ */
@@ -178,7 +177,7 @@ footer::after {
 .cover {
     position: relative;
     z-index: 1;
-    padding: px 20px;
+    padding: 40px 20px;
 }
 
 .contenitore {
@@ -298,7 +297,7 @@ footer h4::after {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #00d4ff, #0099ff);
+    background: linear-gradient(90deg, #047d06, #047d42);
     transition: width 0.3s ease;
 }
 
@@ -370,11 +369,12 @@ footer h4::after {
     .cover {
         padding: 40px 15px;
     }
-=======
+}
+
 #contenitore-filtri button {
     background-color: #2ecc71!important;
     border: none;
-    color: FFF!important;
+    color: #FFF!important;
     text-transform: uppercase!important;
     padding: 14px 22px;
     font-size: 1rem;
@@ -387,7 +387,7 @@ footer h4::after {
 
 #contenitore-filtri a.button {
     text-decoration: none;
-    color:FFF!important;
+    color: #FFF!important;
     text-transform: uppercase!important;
 }
 
@@ -395,12 +395,11 @@ footer h4::after {
     background-color: #023516!important;
 }
 
-
 /********** ricetta ************/
 
 .card {
     background-color: #023516;
-    border-radius: 10x;
+    border-radius: 10px;
     border: none;
 }
 
@@ -413,5 +412,4 @@ footer h4::after {
 .card h4 {
     padding-bottom: 20px;
     border-bottom: 1px solid #FFF;
->>>>>>> 4c3e4157c3a213ac4941d82eb605565e3df78989
 }
