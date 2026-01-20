@@ -1,30 +1,32 @@
-
-/********** generici ************/
-
+/* ============================================
+   1. GENERICI E UTILITY
+   ============================================ */
 .margine {
- margin: 80px auto;
+    margin: 80px auto;
 }
 
 button {
-    border-radius: 50px!important;
-    padding: 7px 20px!important;
+    border-radius: 50px !important;
+    padding: 7px 20px !important;
+    transition: all 0.3s ease;
 }
 
 a.button {
     text-decoration: none;
-    color:FFF;
+    color: #FFFFFF;
+    display: inline-block;
 }
 
-
-
-/********** navbar ************/
-
+/* ============================================
+   2. NAVBAR
+   ============================================ */
 .navbar {
     background-color: rgb(2, 53, 22);
 }
 
 .navbar a {
-    color: #FFF;
+    color: #FFFFFF;
+    transition: color 0.3s;
 }
 
 .navbar a:hover,
@@ -32,107 +34,32 @@ a.button {
     color: #e6e088;
 }
 
-/************ assistenza **********/
-
-#assistenza .accordion button {
-    border-radius: 0px!important;
-}
-
+/* ============================================
+   3. ASSISTENZA
+   ============================================ */
 #assistenza .sfondo_form {
- width: 100%;
- height: auto;
- background-image: url(../img/svuotafrigo.jpg);
- background-position: center;
- background-size: cover;
- padding: 40px;
+    width: 100%;
+    height: auto;
+    background-image: url(../img/svuotafrigo.jpg);
+    background-position: center;
+    background-size: cover;
+    padding: 40px;
 }
 
 #assistenza .form {
- width: 100%;
- height: auto;
- max-width: 700px;
- padding: 40px;
- background-color: rgba(255,255,255,0.8);
- backdrop-filter: blur(10px);
- border-radius: 40px;
- margin: 40px auto;
-}
-
-.fascia_colorata {
- width: 100%;
- height: auto;
- padding: 80px;
- background-color: #101010;
- text-align: center;
-}
-
-.fascia_colorata h3,
-.fascia_colorata p {
-    color: #FFF;
-}
-
-.fascia_link {
- width: 100%;
- height: auto;
- padding: 40px;
- background-color: rgb(2, 53, 22);
- color: #FFF;
-}
-
-.fascia_link h5 {
- text-transform: uppercase;
- font-weight: 400;
-}
-
-.fascia_link a {
- color: #e6e088;
- font-weight: 300;
- text-decoration: none;
-}
-
-/************ footer **********/
-
-footer {
- width: 100%;
- height: auto;
- background-image: url(../img/footer.jpg);
- background-position: 50% 40%;
- background-size: cover;
- padding: 40px;
-}
-
-footer .contenitore {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-footer h4,
-footer h5 {
- text-transform: uppercase;
- font-weight: 400;
- color: #FFF;
-}
-
-footer a {
- color: #e6e088;
- font-weight: 300;
- text-decoration: none;
-}
-
-/********** ricette ************/
-
-#contenitore-filtri {
- width: 100%;
- height: auto;
- background-image: url(../img/footer.jpg);
- background-position: 50% 40%;
- background-size: cover;
- padding: 20px 40px 80px;
+    width: 100%;
+    max-width: 700px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 40px;
+    margin: 40px auto;
 }
 
 /* ============================================
-   FILE CSS: footer-styles.css
+   4. RICETTE E FILTRI
    ============================================ */
+
 
 footer {
     background: linear-gradient(135deg, #2c5d3a 0%, #123b29 50%, #023516 100%);
@@ -141,6 +68,47 @@ footer {
     padding: 0;
 }
 
+#contenitore-filtri {
+    width: 100%;
+    background-image: url(../img/footer.jpg);
+    background-position: 50% 40%;
+    background-size: cover;
+    padding: 20px 40px 80px;
+
+}
+
+#contenitore-filtri button {
+    background-color: #2ecc71 !important;
+    border: none;
+    color: #FFFFFF !important;
+    text-transform: uppercase !important;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50px !important;
+    padding: 10px 20px !important;
+}
+
+.card {
+    background-color: #b0e29f;
+    border: 1px solid #023516;
+    border-radius: 15px;
+}
+
+/* ============================================
+   5. FOOTER (STRUTTURA CON PARTICELLE)
+   ============================================ */
+footer {
+    background: linear-gradient(135deg, rgba(44, 93, 58, 0.95) 0%, rgba(2, 53, 22, 0.95) 100%), 
+                url(../img/footer.jpg);
+    background-size: cover;
+    background-position: 50% 40%;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 0;
+    color: #FFFFFF;
+}
+
+/* Effetto Shimmer sulla linea superiore */
 footer::before {
     content: '';
     position: absolute;
@@ -148,14 +116,16 @@ footer::before {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #104b2b, #165a27, #11502a);
+    background: linear-gradient(90deg, #104b2b, #2ecc71, #104b2b);
     animation: shimmer 3s infinite;
+    z-index: 2;
 }
 
 @keyframes shimmer {
     0%, 100% { opacity: 0.5; }
     50% { opacity: 1; }
 }
+
 
 footer::after {
     content: '';
@@ -308,89 +278,94 @@ footer h4::after {
 }
 
 /* Effetto particelle */
+
 .particles {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
     pointer-events: none;
 }
 
 .particle {
     position: absolute;
-    width: 3px;
-    height: 3px;
-    background: rgba(0,212,255,0.5);
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.4);
     border-radius: 50%;
-    animation: float 8s infinite;
+    bottom: -10px;
+    animation: floatUp 8s infinite linear;
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0) translateX(0);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh) translateX(50px);
-        opacity: 0;
-    }
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
 }
 
-/* Responsive */
-@media (max-width: 576px) {
-    footer h4 {
-        font-size: 1.5rem;
-    }
-
-    .link-card {
-        padding: 25px;
-    }
-
-    .link-card h5 {
-        font-size: 1.3rem;
-    }
-
-    .cover {
-        padding: 40px 15px;
-    }
+.contenitore {
+    position: relative;
+    z-index: 3;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-#contenitore-filtri button {
-    background-color: #2ecc71!important;
-    border: none;
-    color: #FFF!important;
-    text-transform: uppercase!important;
-    padding: 14px 22px;
-    font-size: 1rem;
+footer h4 {
+    font-size: 2rem;
     font-weight: 700;
-    border-radius: 8px;
-    cursor: pointer;
-    border-radius: 50px!important;
-    padding: 10px 20px!important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
 }
 
-#contenitore-filtri a.button {
+/* Link Cards */
+.link-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.4s ease;
+    height: 100%; /* Allinea le altezze nelle righe Bootstrap */
+}
+
+.link-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #2ecc71;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.link-card h5 {
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border-left: 4px solid #2ecc71;
+    padding-left: 15px;
+}
+
+.link-card a {
+    color: #e6e088;
     text-decoration: none;
-    color: #FFF!important;
-    text-transform: uppercase!important;
+    line-height: 1.8;
+    transition: all 0.2s;
+    display: inline-block;
 }
 
-#contenitore-filtri button:hover {
-    background-color: #023516!important;
+.link-card a:hover {
+    color: #FFFFFF;
+    padding-left: 5px;
 }
 
-/********** ricetta ************/
-
-.card {
-    background-color: #b0e29f;
-    border: 1px solid #023516;
-    border: none;
+/* ============================================
+   6. RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .link-card {
+        margin-bottom: 30px;
+    }
 }

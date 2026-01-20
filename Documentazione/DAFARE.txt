@@ -1,6 +1,7 @@
 1- FATTO ACCEDI REGISTRATI ESCE tutto a destra
-2- NON SI FA = messaggio errore migliorare (a me piace così) 
+    2- DA FARE = messaggio errore migliorare 
 3- FATTO = faq: da fare veramente non per finta 
 4- scarica il manuale d'uso
 5- FATTO = aggiornare diagramma di flusso 
 6- sitemare bottoni in tutte le pagine e mettere sfondo dietro i filtri di ricette e di crea ricetta
+    7- DA FARE possibilità di modificare e eliminare ricette dell'utente registrato

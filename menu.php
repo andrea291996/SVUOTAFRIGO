@@ -22,7 +22,7 @@ if($utenteregistrato){
     $menu['items-right'][] = ['href'=> $base . "/esci", 'title'=>"Esci"];
     
 }else{
-    $menu = ['brand'=>['href'=> $base . "/", 'title'=>"SVUOTAFRIGO"]];
+    $menu = ['brand'=>['href'=> $base . "/", 'title'=>"SVUOTAFRIGO v.2"]];
     $menu['items'][] = ['href'=> $base . "/home", 'title'=>"Home"];
     $menu['items'][] = ['href'=> $base . "/ricette", 'title'=>"Ricette"];
     $menu['items'][] = ['href'=> $base . "/assistenza", 'title'=>"Assistenza"];
