@@ -26,8 +26,11 @@ class MieRicetteController extends Controller {
             UIMessage::setError("Non hai inserito nessuna tua ricetta.");
             return $response->withHeader('Location', BASE_PATH . '/crearicetta')->withStatus(302);
         }
-        //se l'utente ha delle sue ricette gliele mostro
+        //se l'utente ha delle sue ricette gliele mostro con il template solito
         $ricette = $this->mappaRigheInOggetti($db, $righe);
+        foreach($ricette as $ricetta){
+            $ricetta->modificabile = true;
+        }
         $page->add("content", new PageElement("ricette/elenco", ["lista" => $ricette]));
         return $response;
     }

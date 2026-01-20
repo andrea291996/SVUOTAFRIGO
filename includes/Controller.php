@@ -30,7 +30,7 @@ abstract class Controller{
             if($r['senza_frutta_secca']) $etichetteDieta[] = "Senza Frutta Secca";
             //se ci sono più etichiette di diete li unisce (con implode) con la virgola, altrimenti scrive standard
             $testoDieta = !empty($etichetteDieta) ? implode(', ', $etichetteDieta) : "Standard";
-            $oggetti[] = new Ricetta($r['titolo'], $r['procedimento'], $ingredientiNomi, $testoDieta, $r['tipologia']);
+            $oggetti[] = new Ricetta($r['titolo'], $r['procedimento'], $ingredientiNomi, $testoDieta, $r['tipologia'], $r['id']);
         }
         return $oggetti;
     }

@@ -1,5 +1,5 @@
 <section id="assistenza">
-    <h1 class="text-center margine">ASSISTENZA</h1>
+    <h1 class="text-center mt-5">ASSISTENZA</h1>
     <div class="container margine">
         <h2 class="mb-3">Faq</h2>
         <div class="accordion" id="accordionExample">
@@ -116,5 +116,29 @@
         <h3>Scarica il <strong>Manuale d'uso</strong></h3>
         <p>Per maggiori informazioni sul funzionamento di questa web application, scarica il Manuale d'uso</p>
         <button class="btn btn-primary text-uppercase"><a class="button" href="http://localhost/SVUOTAFRIGO/Documentazione/MANUALE_UTENTE.pdf">Scarica il manuale d'uso</a></button>
+                <!-- Pulsante VIDEO -->
+            <button class="btn btn-primary text-uppercase" onclick="mostraVideo()" id="btnVideo">Riproduci Video</button>
+
+            <!-- Contenitore video inizialmente nascosto -->
+            <div id="videoContainer" style="display:none; margin-top:20px;">
+                <video id="mioVideo" width="400" controls>
+                    <source src="video.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <script>
+            function mostraVideo() {
+                var x = document.getElementById("videoContainer");
+                var v = document.getElementById("mioVideo");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                    v.play(); // Avvia il video automaticamente al click
+                } else {
+                    x.style.display = "none";
+                    v.pause(); // Ferma il video se lo nascondi
+                }
+            }
+            </script>
     </div>
 </section>
+
