@@ -138,7 +138,7 @@ footer {
     background: linear-gradient(135deg, #2c5d3a 0%, #123b29 50%, #023516 100%);
     position: relative;
     overflow: hidden;
-    margin-top: 100px;
+    padding: 0;
 }
 
 footer::before {
@@ -174,16 +174,8 @@ footer::after {
     to { transform: rotate(360deg); }
 }
 
-.cover {
-    position: relative;
-    z-index: 1;
-    padding: 40px 20px;
-}
 
-.contenitore {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+
 
 footer h4 {
     color: #eff6f1;

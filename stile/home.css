@@ -134,17 +134,6 @@
       color: #666;
     }
 
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    footer p {
-      font-size: 0.9rem;
-    }
     button {
     border-radius: 50px!important;
     padding: 7px 20px!important;
