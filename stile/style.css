@@ -106,7 +106,6 @@ a.button {
 
 #contenitore-filtri button,
 #assistenza button.btn {
-    min-width: 300px;
     background-color: #2ecc71 !important;
     border: none;
     color: #FFFFFF !important;
