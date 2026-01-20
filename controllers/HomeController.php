@@ -9,6 +9,7 @@ class HomeController extends Controller{
         $page = PageConfigurator::instance()->getPage(); //guarda index, avevi fatto setPage
         $page->setTitle("Home");
         $page->add("content", new PageElement("ui/home"));
+        $page->add("stile", new PageElement("css/home"));
         return $response;
         }
 
