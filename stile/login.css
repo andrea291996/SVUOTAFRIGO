@@ -4,8 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
-}
+  }
 
 
 
@@ -36,7 +35,7 @@
 }
 
 #login .login-container input:focus {
-  border-color: #ff6b6b;
+  border-color: #27ae60;
   outline: none;
   box-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
 }
@@ -45,7 +44,7 @@
 #login .login-container button {
   width: 100%;
   padding: 12px;
-  background-color: #ff6b6b;
+  background-color: #27ae60;
   border: none;
   border-radius: 8px;
   color: white;
@@ -55,7 +54,7 @@
 }
 
 #login .login-container button:hover {
-  background-color: #ff4c4c;
+  background-color: #27ae60;
 }
 
 /* Forgot password link */

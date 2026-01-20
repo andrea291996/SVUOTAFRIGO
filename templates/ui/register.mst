@@ -1,37 +1,35 @@
 <section class="text-center" id="registrati">
   <div class="row d-flex justify-content-center">
     <div class="col-lg-8">
-      <h2 class="fw-bold mb-5">Registrati adesso</h2>
-        <form action="registrati" method="post">
+      
+        <form action="registrati" method="post" class="registrati-container"><h2 class="mb-5">Registrati adesso</h2>
           <div class="row">
             <div class="col-md-6 mb-4">
               <div class="form-outline">
-                <input type="text" class="form-control" name="nome" />
-                <label class="form-label">Nome</label>
+                <input type="text" class="form-control" name="nome" placeholder="Nome"/>
+                <label class="form-label"></label>
               </div>
             </div>
             <div class="col-md-6 mb-4">
               <div class="form-outline">
-                <input type="text" class="form-control" name="cognome" />
-                <label class="form-label">Cognome</label>
+                <input type="text" class="form-control" name="cognome" placeholder="Cognome" />
+                <label class="form-label"></label>
               </div>
             </div>
           </div>
           <div data-mdb-input-init class="form-outline mb-4">
-            <input type="email" class="form-control" name="email" required />
-            <label class="form-label">Indirizzo Email</label>
+            <input type="email" class="form-control" name="email" required placeholder="Indirizzo Email" />
+            <label class="form-label"></label>
           </div>
           <div data-mdb-input-init class="form-outline mb-4">
-            <input type="password" class="form-control" name="password" required />
-            <label class="form-label">Password</label>
+            <input type="password" class="form-control" name="password"  placeholder="Password" />
+            <label class="form-label"></label>
           </div>
           <div class="form-check d-flex justify-content-center mb-4">
-            <input class="form-check-input me-2" type="checkbox" />
-            <label class="form-check-label">
-              iscriviti alla newsletter
-            </label>
+            
+            
           </div>
-          <button type="submit" class="btn btn-primary btn-block mb-4">
+          <button type="submit" class="regi">
           Registrati
           </button>
         </form>
