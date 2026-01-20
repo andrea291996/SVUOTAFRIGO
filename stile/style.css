@@ -9,7 +9,17 @@ button {
     border-radius: 50px !important;
     padding: 7px 20px !important;
     transition: all 0.3s ease;
+    background-color: #27ae60;
+    color: white;
+    border-color: #27ae60;
+    border: none;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    
 }
+
+
 
 a.button {
     text-decoration: none;
