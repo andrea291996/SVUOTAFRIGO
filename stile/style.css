@@ -1,6 +1,10 @@
 /* ============================================
      GENERICI E UTILITY
    ============================================ */
+*{
+    font-family: 'Messapia'!important;
+}
+
 .margine {
     margin: 20px auto 80px;
 }
