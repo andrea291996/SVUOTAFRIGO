@@ -5,7 +5,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class AccediController extends Controller{
     
-    //get
+    //get commento
     //carica la pagina, template di login, stile di login
     function accedi(Request $request, Response $response, $args) {    
         $page = PageConfigurator::instance()->getPage(); 
