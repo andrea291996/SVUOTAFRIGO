@@ -12,7 +12,7 @@
                     
                     <div class="row mb-5">
                         <div class="col-12">
-                            <label class="form-label fw-bold fs-5 mb-3">
+                            <label class="form-label fw-bold fs-5 mb-3" for="input-ingrediente-nuovo">
                                 <i class="fas fa-refrigerator me-2 text-primary"></i>Cosa hai in frigo?
                             </label>
                             
@@ -81,11 +81,11 @@
                                 </div>
                                 <div class="form-check mb-2 border-top mt-2 pt-2">
                                     <input class="form-check-input" type="checkbox" name="dieta_musulmana" id="halal">
-                                    <label class="form-check-label" for="halal text-muted">Halal</label>
+                                    <label class="form-check-label" for="halal">Halal</label>
                                 </div>
                                 <div class="form-check mb-2">
                                     <input class="form-check-input" type="checkbox" name="dieta_ebraica" id="kosher">
-                                    <label class="form-check-label" for="kosher text-muted">Kosher</label>
+                                    <label class="form-check-label" for="kosher">Kosher</label>
                                 </div>
                             </div>
                         </div>
