@@ -15,6 +15,7 @@
 #home header p {
       margin-top: 8px;
       font-size: 1.1rem;
+      font-family: var(--font-family2);
     }
 
 #home .hero {
@@ -44,6 +45,7 @@
       margin-bottom: 20px;
       line-height: 1.6;
       color: white;
+      font-family: var(--font-family2);
     }
 
 #home .hero-text button {

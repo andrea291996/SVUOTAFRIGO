@@ -1,9 +1,9 @@
 /* ============================================
      GENERICI E UTILITY
    ============================================ */
-*{
-    font-family: 'Messapia'!important;
-}
+
+h1, h2, h3, h4 { font-family: 'Messapia'; }
+p { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; }
 
 .margine {
     margin: 20px auto 80px;
