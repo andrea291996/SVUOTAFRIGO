@@ -5,7 +5,7 @@
 
     <section class="hero">
       <div class="hero-text">
-        <h2>Cucina senza sprechi 🍝</h2>
+        <h1>Cucina <br>senza sprechi 🍝</h1>
         <p>Inserisci gli ingredienti che hai a casa e scopri ricette facili, veloci e gustose. SVUOTAFRIGO ti aiuta a risparmiare e mangiare bene ogni giorno.</p>
         <button><a href="./ricette">Inizia ora</a></button>
       </div>
@@ -17,12 +17,12 @@
 
 
     <section class="section">
-      <h3>Risparmia & fai la differenza</h3>
+      <h2>Risparmia & fai la differenza</h2>
       <div class="recipes">
         <div class="recipe-card">
           <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80" alt="Risparmio" />
           <div class="content">
-            <h4>💰 Meno spesa</h4>
+            <h3>💰 Meno spesa</h3>
             <p>Usa ciò che hai già in frigo e riduci gli acquisti inutili.</p>
           </div>
         </div>
@@ -30,7 +30,7 @@
         <div class="recipe-card">
           <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80" alt="Zero sprechi" />
           <div class="content">
-            <h4>♻️ Zero sprechi</h4>
+            <h3>♻️ Zero sprechi</h3>
             <p>Dai nuova vita agli ingredienti dimenticati.</p>
           </div>
         </div>
@@ -38,7 +38,7 @@
         <div class="recipe-card">
           <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Tempo" />
           <div class="content">
-            <h4>⏱️ Più tempo per te</h4>
+            <h3>⏱️ Più tempo per te</h3>
             <p>Ricette rapide pensate per la vita di tutti i giorni.</p>
           </div>
         </div>

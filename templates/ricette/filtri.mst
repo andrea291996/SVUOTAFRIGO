@@ -2,9 +2,9 @@
     <div class="container mt-5" >
         <div class="card shadow border-0 overflow-hidden">
             <div class="card-header bg-dark bg-gradient text-white py-3">
-                <h5 class="mb-0 d-flex align-items-center">
+                <h1 class="mb-0 d-flex align-items-center">
                     <i class="fas fa-filter me-2 text-info"></i>Personalizza la tua ricerca
-                </h5>
+                </h1>
             </div>
             
             <div class="card-body p-4">
@@ -13,7 +13,7 @@
                     <div class="row mb-5">
                         <div class="col-12">
                             <label class="form-label fw-bold fs-5 mb-3">
-                                <i class="fas fa-refrigerator me-2 text-primary"></i>Cosa hai in frigo?
+                                <h2><i class="fas fa-refrigerator me-2 text-primary"></i>Cosa hai in frigo?</h2>
                             </label>
                             
                             <div class="row g-2 align-items-center">
@@ -40,9 +40,9 @@
                     <div class="row g-4">
                         <div class="col-md-4">
                             <div class="p-3 bg-white rounded h-100">
-                                <h6 class="text-primary fw-bold mb-3 border-bottom pb-2">
+                                <h3 class="text-primary fw-bold mb-3 border-bottom pb-2">
                                     <i class="fas fa-concierge-bell me-2"></i>Portata
-                                </h6>
+                                </h3>
                                 <div class="form-check mb-2 custom-check">
                                     <input class="form-check-input" type="checkbox" name="antipasto" id="antipasto">
                                     <label class="form-check-label" for="antipasto">Antipasto</label>
@@ -68,9 +68,9 @@
 
                         <div class="col-md-4">
                             <div class="p-3 bg-white rounded h-100">
-                                <h6 class="text-success fw-bold mb-3 border-bottom pb-2">
+                                <h3 class="text-success fw-bold mb-3 border-bottom pb-2">
                                     <i class="fas fa-leaf me-2"></i>Stile di Vita
-                                </h6>
+                                </h3>
                                 <div class="form-check mb-2">
                                     <input class="form-check-input" type="checkbox" name="vegetariana" id="veg">
                                     <label class="form-check-label" for="veg">Vegetariana</label>
@@ -92,9 +92,9 @@
 
                         <div class="col-md-4">
                             <div class="p-3 bg-white rounded h-100 border-1">
-                                <h6 class="text-danger fw-bold mb-3 border-bottom pb-2">
+                                <h3 class="text-danger fw-bold mb-3 border-bottom pb-2">
                                     <i class="fas fa-exclamation-triangle me-2"></i>Intolleranze
-                                </h6>
+                                </h3>
                                 <div class="form-check mb-2">
                                     <input class="form-check-input" type="checkbox" name="senza_glutine" id="glu">
                                     <label class="form-check-label" for="glu">Senza Glutine</label>
