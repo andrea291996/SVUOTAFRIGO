@@ -5,7 +5,7 @@
     margin: 20px auto 80px;
 }
 
-button .btn-cancella {
+button.btn-cancella {
     border-radius: 50px !important;
     padding: 7px 20px !important;
     transition: all 0.3s ease;
