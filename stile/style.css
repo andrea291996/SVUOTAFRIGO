@@ -31,19 +31,19 @@ a.button {
 /* ============================================
       NAVBAR
    ============================================ */
-.navbar {
+#menu .navbar {
     background-color: rgb(2, 53, 22);
     border-bottom: 1px solid #104b2b;
 }
 
-.navbar a {
+#menu .navbar a {
     color: #FFFFFF;
     transition: color 0.3s;
     text-transform: uppercase;
 }
 
-.navbar a:hover,
-.navbar a:active {
+#menu .navbar a:hover,
+#menu .navbar a:active {
     color: #e6e088;
 }
 
@@ -131,7 +131,7 @@ a.button {
 }
 
 /* ============================================
-    FOOTER (STRUTTURA CON PARTICELLE)
+    FOOTER
    ============================================ */
 footer {
     background: linear-gradient(135deg, rgba(45, 93, 44, 0.95) 0%, rgba(6, 53, 2, 0.95) 100%), 
