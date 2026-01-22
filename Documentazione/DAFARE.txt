@@ -1,4 +1,8 @@
 INDICE
 DIDASCALIE FOTO
 Indirizzo app
-Manuale manutenzione
+Indice figure
+indice revisioni documento
+Scopo del documento per sviluppatori e per utenti
+Intestazione in tutte le pagine
+File di excel
