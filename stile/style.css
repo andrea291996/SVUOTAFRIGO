@@ -1,25 +1,25 @@
 /* ============================================
      GENERICI E UTILITY
    ============================================ */
+   
 .margine {
     margin: 20px auto 80px;
 }
 
-button .btn-cancella {
+button.btn-cancella {
     border-radius: 50px !important;
     padding: 7px 20px !important;
     transition: all 0.3s ease;
     background-color: #27ae60;
     color: white;
     border-color: #27ae60;
+    text-transform: uppercase;
+    font-weight: 700;
     border: none;
     position: absolute;
     bottom: 15px;
     right: 15px;
-    
 }
-
-
 
 a.button {
     text-decoration: none;
@@ -46,6 +46,20 @@ a.button {
 #menu .navbar a:active {
     color: #e6e088;
 }
+
+
+/* ============================================
+       MENù HAMBURGER
+============================================ */
+.navbar-toggler {
+  border-color: white;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
 
 /* ============================================
        ASSISTENZA
@@ -144,6 +158,8 @@ footer {
     color: #FFFFFF;
 }
 
+
+
 /* ============================================
        EFFETTO SHIMMER LINEA SUPERIORE
 ============================================ */
@@ -216,18 +232,7 @@ footer h4 {
     padding-left: 5px;
 }
 
-/* ============================================
-    RESPONSIVE
-   ============================================ */
-@media (max-width: 768px) {
-    .link-card {
-        margin-bottom: 30px;
-    }
 
-    #contenitore-filtri {
-    padding: 5px 20px;
-    }
-}
 /* ============================================
    MESSAGGIO DI ERRORE
    ============================================ */
@@ -315,14 +320,43 @@ footer h4 {
 
 
 
-/* ============================================
-       MENù HAMBURGER
-============================================ */
-.navbar-toggler {
-  border-color: white;
-}
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+/* ============================================
+    RESPONSIVE
+   ============================================ */
+    @media (max-width: 768px) {
+
+        .link-card {
+            margin-bottom: 30px;
+        }
+
+        #contenitore-filtri {
+        padding: 2px 10px 20px;
+        }
+
+        #contenitore-filtri input::placeholder {
+        font-size: 15px;
+        }
+
+        #contenitore-filtri button,
+        #assistenza button.btn {
+            margin: 0 0;
+        }
+
+        .contenitore-ricetta .card {
+            padding-bottom: 50px;
+        }
+
+        .contenitore-ricetta .card .assoluto {
+            position: relative;
+            bottom: 0;
+        }
+
+
+        footer { padding: 40px 0; }
+
+        footer .distanziatore {
+        height: 15px;
+    }
 }
 
