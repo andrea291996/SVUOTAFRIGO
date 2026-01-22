@@ -2,7 +2,7 @@
      GENERICI E UTILITY
    ============================================ */
 
-h1, h2, h3, h4 { font-family: 'Messapia' !important;; }
+h1, h2, h3, h4 { font-family: 'Messapia' !important; }
 p { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; }
 
 .margine {
@@ -40,6 +40,7 @@ a.button {
 }
 
 #menu .navbar a {
+    font-family:  'Messapia';
     color: #FFFFFF;
     transition: color 0.3s;
     text-transform: uppercase;
@@ -142,6 +143,11 @@ a.button {
     padding-bottom: 120px;
 }
 
+.contenitore-ricetta .card h4 {
+    font-size: 19px;
+    line-height: 1.2em;
+}
+
 .contenitore-ricetta .card .assoluto {
     position: absolute;
     bottom: 20px;
@@ -161,11 +167,6 @@ footer {
     color: #FFFFFF;
 }
 
-
-
-/* ============================================
-       EFFETTO SHIMMER LINEA SUPERIORE
-============================================ */
 footer::before {
     content: '';
     position: absolute;
@@ -196,7 +197,7 @@ footer h4 {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 /* ============================================
