@@ -39,8 +39,11 @@ a.button {
     border-bottom: 1px solid #104b2b;
 }
 
-#menu .navbar a {
+#menu .navbar a.navbar-brand {
     font-family:  'Messapia';
+}
+
+#menu .navbar a {
     color: #FFFFFF;
     transition: color 0.3s;
     text-transform: uppercase;
