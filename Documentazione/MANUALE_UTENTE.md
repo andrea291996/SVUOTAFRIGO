@@ -77,7 +77,7 @@ Per salvare le tue creazioni, effettua l'accesso o registrati.
 ![Schermata Login](Screenshot/login.png)  
 *Figura 2: Interfaccia di Login - Accesso per gestire il ricettario personale.*
 
-![Schermata Registrazione](Screenshot/registrazione.png)  
+![Schermata Registrazione](Screenshot/registrazione.jpg)  
 *Figura 3: Interfaccia di Registrazione - Pannello per la creazione di un nuovo profilo.*
 
 ### Pagina Ricette
