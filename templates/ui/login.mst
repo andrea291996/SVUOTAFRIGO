@@ -2,8 +2,10 @@
   <div class="login-container">
     <h2>Accedi</h2>
     <form action="accedi" method="post">
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="password" name="password" placeholder="Password" required>
+      <label for="login-email" class="visually-hidden">Email</label>
+      <input type="email" id="login-email" name="email" placeholder="Email" required autocomplete="username">
+      <label for="login-password" class="visually-hidden">Password</label>
+      <input type="password" id="login-password" name="password" placeholder="Password" required autocomplete="current-password">
       <button type="submit">Login</button>
       <a href="#" class="forgot-password">Hai dimenticato la password?</a>
     </form>

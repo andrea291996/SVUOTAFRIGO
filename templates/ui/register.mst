@@ -6,24 +6,24 @@
           <div class="row">
             <div class="col-md-6 mb-4">
               <div class="form-outline">
-                <input type="text" class="form-control" name="nome" placeholder="Nome"/>
-                <label class="form-label"></label>
+                <input type="text" class="form-control" name="nome" id="register-nome" placeholder="Nome" autocomplete="given-name"/>
+                <label class="form-label" for="register-nome">Nome</label>
               </div>
             </div>
             <div class="col-md-6 mb-4">
               <div class="form-outline">
-                <input type="text" class="form-control" name="cognome" placeholder="Cognome" />
-                <label class="form-label"></label>
+                <input type="text" class="form-control" name="cognome" id="register-cognome" placeholder="Cognome" autocomplete="family-name"/>
+                <label class="form-label" for="register-cognome">Cognome</label>
               </div>
             </div>
           </div>
           <div data-mdb-input-init class="form-outline mb-4">
-            <input type="email" class="form-control" name="email" required placeholder="Indirizzo Email" />
-            <label class="form-label"></label>
+            <input type="email" class="form-control" name="email" id="register-email" required placeholder="Indirizzo Email" autocomplete="email" />
+            <label class="form-label" for="register-email">Indirizzo Email</label>
           </div>
           <div data-mdb-input-init class="form-outline mb-4">
-            <input type="password" class="form-control" name="password"  placeholder="Password" />
-            <label class="form-label"></label>
+            <input type="password" class="form-control" name="password" id="register-password" placeholder="Password" autocomplete="new-password" />
+            <label class="form-label" for="register-password">Password</label>
           </div>
           <div class="form-check d-flex justify-content-center mb-4">
             
