@@ -2,7 +2,7 @@
      GENERICI E UTILITY
    ============================================ */
 
-h1, h2, h3, h4 { font-family: 'Messapia'; }
+h1, h2, h3, h4 { font-family: 'Messapia' !important;; }
 p { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; }
 
 .margine {
