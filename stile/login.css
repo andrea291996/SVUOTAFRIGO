@@ -87,5 +87,5 @@ background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  min-height: 100vh;
 }
